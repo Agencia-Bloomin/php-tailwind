@@ -1,10 +1,15 @@
 <?php
 $siteConfig = require __DIR__ . '/../config/site.php';
+$seoConfig = require __DIR__ . '/../config/seo.php';
 
 $this->layout('views/pages/base', [
-    'title' => 'Página Inicial - ' . $siteConfig['name'],
-    'description' => $siteConfig['tagline'],
-    'keywords' => $siteConfig['seo']['keywords']
+    'title' => $seoConfig['home']['title'],
+    'description' => $seoConfig['home']['description'],
+    'keywords' => $seoConfig['home']['keywords'],
+    'ogTitle' => $seoConfig['home']['og_title'],
+    'ogDescription' => $seoConfig['home']['og_description'],
+    'ogImage' => $seoConfig['home']['og_image'],
+    'canonical' => $seoConfig['home']['canonical']
 ]);
 ?>
 

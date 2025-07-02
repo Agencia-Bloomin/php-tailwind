@@ -1,7 +1,14 @@
 <?php
+$seoConfig = require __DIR__ . '/../config/seo.php';
+
 $this->layout('views/pages/base', [
-    'title' => 'Método não permitido - 405',
-    'description' => 'O método de requisição não é permitido para esta página.'
+    'title' => $seoConfig['405']['title'],
+    'description' => $seoConfig['405']['description'],
+    'keywords' => $seoConfig['405']['keywords'],
+    'ogTitle' => $seoConfig['405']['og_title'],
+    'ogDescription' => $seoConfig['405']['og_description'],
+    'ogImage' => $seoConfig['405']['og_image'],
+    'canonical' => $seoConfig['405']['canonical']
 ]);
 ?>
 

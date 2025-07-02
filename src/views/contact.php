@@ -1,10 +1,15 @@
 <?php
 $siteConfig = require __DIR__ . '/../config/site.php';
+$seoConfig = require __DIR__ . '/../config/seo.php';
 
 $this->layout('views/pages/base', [
-    'title' => 'Contato - ' . $siteConfig['name'],
-    'description' => 'Entre em contato conosco',
-    'keywords' => 'contato, email'
+    'title' => $seoConfig['contact']['title'],
+    'description' => $seoConfig['contact']['description'],
+    'keywords' => $seoConfig['contact']['keywords'],
+    'ogTitle' => $seoConfig['contact']['og_title'],
+    'ogDescription' => $seoConfig['contact']['og_description'],
+    'ogImage' => $seoConfig['contact']['og_image'],
+    'canonical' => $seoConfig['contact']['canonical']
 ]);
 ?>
 

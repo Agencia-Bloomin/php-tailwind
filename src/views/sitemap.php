@@ -6,11 +6,16 @@ $api = new ApiClient();
 $pages = $api->getAllPages();
 
 $siteConfig = require __DIR__ . '/../config/site.php';
+$seoConfig = require __DIR__ . '/../config/seo.php';
 
 $this->layout('views/pages/base', [
-    'title' => 'Mapa do Site - ' . $siteConfig['name'],
-    'description' => 'Lista completa de todas as páginas disponíveis em nosso site',
-    'keywords' => 'sitemap, mapa do site, páginas, navegação'
+    'title' => $seoConfig['sitemap']['title'],
+    'description' => $seoConfig['sitemap']['description'],
+    'keywords' => $seoConfig['sitemap']['keywords'],
+    'ogTitle' => $seoConfig['sitemap']['og_title'],
+    'ogDescription' => $seoConfig['sitemap']['og_description'],
+    'ogImage' => $seoConfig['sitemap']['og_image'],
+    'canonical' => $seoConfig['sitemap']['canonical']
 ]);
 ?>
 

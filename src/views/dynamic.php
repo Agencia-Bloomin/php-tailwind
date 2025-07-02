@@ -13,14 +13,16 @@ if (!$pageData || empty($pageData['content'])) {
 }
 
 
+$seoConfig = require __DIR__ . '/../config/seo.php';
+
 $this->layout('views/pages/base', [
-    'title' => $pageData['title'] . ' - SEO Template',
+    'title' => $pageData['title'] . ' - ' . $seoConfig['global']['site_name'],
     'description' => $pageData['description'],
-    'keywords' => $pageData['keywords'] ?? 'seo, template, página dinâmica',
+    'keywords' => $pageData['keywords'] ?? $seoConfig['global']['site_description'],
     'ogTitle' => $pageData['title'],
     'ogDescription' => $pageData['description'],
     'ogImage' => $pageData['cover'],
-    'canonicalUrl' => 'https://seusite.com/' . $slug
+    'canonical' => '/' . $slug
 ]);
 ?>
 

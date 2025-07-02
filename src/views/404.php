@@ -1,7 +1,14 @@
 <?php
+$seoConfig = require __DIR__ . '/../config/seo.php';
+
 $this->layout('views/pages/base', [
-    'title' => 'Página não encontrada - 404',
-    'description' => 'A página que você está procurando não foi encontrada.'
+    'title' => $seoConfig['404']['title'],
+    'description' => $seoConfig['404']['description'],
+    'keywords' => $seoConfig['404']['keywords'],
+    'ogTitle' => $seoConfig['404']['og_title'],
+    'ogDescription' => $seoConfig['404']['og_description'],
+    'ogImage' => $seoConfig['404']['og_image'],
+    'canonical' => $seoConfig['404']['canonical']
 ]);
 ?>
 
