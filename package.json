@@ -1,0 +1,28 @@
+{
+  "name": "itecsoldas",
+  "version": "1.0.0",
+  "description": "Itecsoldas",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:php\" \"npm run dev:vite\"",
+    "dev:vite": "vite",
+    "dev:php": "php -S localhost:8000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@glidejs/glide": "^3.7.1",
+    "@iconify/iconify": "^3.1.1",
+    "@tailwindcss/vite": "^4.1.8",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "tailwindcss": "^4.1.8",
+    "vite": "^5.2.8"
+  }
+}
