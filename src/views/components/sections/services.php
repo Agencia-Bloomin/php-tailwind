@@ -85,7 +85,7 @@ foreach ($attributes as $key => $value) {
                         </p>
 
                         <div class="flex space-x-3 z-10">
-                            <?= $this->insert('components/common/button', [
+                            <?= $this->insert('components/ui/button', [
                                 'text' => 'Detalhes',
                                 'href' => './servicos',
                                 'variant' => 'outline',
@@ -94,7 +94,7 @@ foreach ($attributes as $key => $value) {
                                     'class' => 'flex-1 text-center text-xs'
                                 ]
                             ]) ?>
-                            <?= $this->insert('components/common/button', [
+                            <?= $this->insert('components/ui/button', [
                                 'text' => 'Cotação',
                                 'href' => './contato',
                                 'variant' => 'primary',
@@ -118,7 +118,7 @@ foreach ($attributes as $key => $value) {
                     <h3 class="text-2xl font-bold text-neutral-900">Soluções Sob Medida para sua Indústria</h3>
                 </div>
                 <p class="text-neutral-700 mb-8 text-lg">Nossa equipe técnica está preparada para desenvolver projetos personalizados com foco em desempenho, durabilidade e agilidade na execução.</p>
-                <?= $this->insert('components/common/button', [
+                <?= $this->insert('components/ui/button', [
                     'text' => 'Fale com Nossos Especialistas',
                     'href' => './contato',
                     'variant' => 'primary',

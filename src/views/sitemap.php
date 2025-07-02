@@ -5,10 +5,10 @@ use App\Core\ApiClient;
 $api = new ApiClient();
 $pages = $api->getAllPages();
 
-$siteConfig = require __DIR__ . '/../config/site.php';
-$seoConfig = require __DIR__ . '/../config/seo.php';
+$siteConfig = require dirname(__DIR__) . '/config/site.php';
+$seoConfig = require dirname(__DIR__) . '/config/seo.php';
 
-$this->layout('views/pages/base', [
+$this->layout('pages/base', [
     'title' => $seoConfig['sitemap']['title'],
     'description' => $seoConfig['sitemap']['description'],
     'keywords' => $seoConfig['sitemap']['keywords'],
@@ -67,7 +67,7 @@ $this->layout('views/pages/base', [
                 <p>Não encontrou o que procura? Entre em contato conosco.</p>
             </div>
             <div class="mt-6">
-                <?= $this->insert('components/common/button', [
+                <?= $this->insert('components/ui/button', [
                     'text' => 'Fale Conosco',
                     'href' => '/contato',
                     'variant' => 'primary',

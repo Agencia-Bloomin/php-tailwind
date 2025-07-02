@@ -1,5 +1,5 @@
 <?php
-$siteConfig = require __DIR__ . '/../../config/site.php';
+$siteConfig = require dirname(__DIR__, 3) . '/config/site.php';
 $logo = $logo ?? [
     'text' => 'Itecsoldas',
     'href' => './'
@@ -134,7 +134,7 @@ foreach ($attributes as $key => $value) {
             </nav>
 
             <div class="hidden lg:flex items-center space-x-4">
-                <?= $this->insert('components/common/button', [
+                <?= $this->insert('components/ui/button', [
                     'text' => $ctaButton['text'],
                     'href' => $ctaButton['href'],
                     'variant' => $ctaButton['variant'],
@@ -179,7 +179,7 @@ foreach ($attributes as $key => $value) {
                     </div>
                 <?php endforeach; ?>
                 <div class="px-4 pt-4">
-                    <?= $this->insert('components/common/button', [
+                    <?= $this->insert('components/ui/button', [
                         'text' => $ctaButton['text'],
                         'href' => $ctaButton['href'],
                         'variant' => $ctaButton['variant'],

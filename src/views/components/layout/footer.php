@@ -1,6 +1,6 @@
 <?php
 $year = date('Y');
-$siteConfig = require __DIR__ . '/../../config/site.php';
+$siteConfig = require dirname(__DIR__, 3) . '/config/site.php';
 $companyName = $companyName ?? $siteConfig['name'];
 
 $footerLinks = [

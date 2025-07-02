@@ -1,6 +1,6 @@
 <?php
-$siteConfig = require __DIR__ . '/../../config/site.php';
-$seoConfig = require __DIR__ . '/../../config/seo.php';
+$siteConfig = require dirname(__DIR__, 2) . '/config/site.php';
+$seoConfig = require dirname(__DIR__, 2) . '/config/seo.php';
 ?>
 <!DOCTYPE html>
 <html lang="<?= $seoConfig['global']['language'] ?>">

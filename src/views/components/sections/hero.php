@@ -72,7 +72,7 @@ foreach ($attributes as $key => $value) {
 
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
                         <?php foreach ($buttons as $button): ?>
-                            <?= $this->insert('components/common/button', [
+                            <?= $this->insert('components/ui/button', [
                                 'text' => $button['text'],
                                 'href' => $button['href'],
                                 'variant' => $button['variant'],

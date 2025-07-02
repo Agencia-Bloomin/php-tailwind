@@ -1,8 +1,8 @@
 <?php
-$siteConfig = require __DIR__ . '/../config/site.php';
-$seoConfig = require __DIR__ . '/../config/seo.php';
+$siteConfig = require dirname(__DIR__) . '/config/site.php';
+$seoConfig = require dirname(__DIR__) . '/config/seo.php';
 
-$this->layout('views/pages/base', [
+$this->layout('pages/base', [
     'title' => $seoConfig['services']['title'],
     'description' => $seoConfig['services']['description'],
     'keywords' => $seoConfig['services']['keywords'],

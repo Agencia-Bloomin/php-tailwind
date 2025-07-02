@@ -81,7 +81,7 @@ foreach ($attributes as $key => $value) {
                 </div>
 
                 <div class="pt-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <?= $this->insert('components/common/button', [
+                    <?= $this->insert('components/ui/button', [
                         'text' => 'Conheça Nossos Processos',
                         'href' => './servicos',
                         'variant' => 'primary',
@@ -91,7 +91,7 @@ foreach ($attributes as $key => $value) {
                         ]
                     ]) ?>
 
-                    <?= $this->insert('components/common/button', [
+                    <?= $this->insert('components/ui/button', [
                         'text' => 'Fale com Ireno e Douglas',
                         'href' => './contato',
                         'variant' => 'outline',

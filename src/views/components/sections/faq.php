@@ -39,7 +39,7 @@ $faq_items = [
                         <p class="text-neutral-600 mb-8">
                             Nossa equipe técnica está preparada para fornecer respostas detalhadas e personalizadas sobre soldagem a laser.
                         </p>
-                        <?= $this->insert('components/common/button', [
+                        <?= $this->insert('components/ui/button', [
                             'text' => 'Consulta Técnica Gratuita',
                             'href' => './contato',
                             'variant' => 'primary',

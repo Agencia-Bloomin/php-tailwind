@@ -15,7 +15,7 @@ class Router
 
     public function __construct()
     {
-        $this->templates = new Engine(dirname(__DIR__));
+        $this->templates = new Engine(dirname(__DIR__) . '/views');
         $this->apiClient = new ApiClient();
 
         $this->templates->addData(['year' => date('Y')]);
@@ -30,15 +30,15 @@ class Router
         }
 
         $this->dispatcher = simpleDispatcher(function (RouteCollector $r) use ($baseUrl) {
-            $r->addRoute('GET', $baseUrl . '/', 'views/home');
-            $r->addRoute('GET', $baseUrl . '/servicos', 'views/services');
-            $r->addRoute('GET', $baseUrl . '/contato', 'views/contact');
-            $r->addRoute('GET', $baseUrl . '/sobre', 'views/about');
-            $r->addRoute('GET', $baseUrl . '/faq', 'views/faq');
-            $r->addRoute('GET', $baseUrl . '/mapa-site', 'views/sitemap');
+            $r->addRoute('GET', $baseUrl . '/', 'home');
+            $r->addRoute('GET', $baseUrl . '/servicos', 'services');
+            $r->addRoute('GET', $baseUrl . '/contato', 'contact');
+            $r->addRoute('GET', $baseUrl . '/sobre', 'about');
+            $r->addRoute('GET', $baseUrl . '/faq', 'faq');
+            $r->addRoute('GET', $baseUrl . '/mapa-site', 'sitemap');
             $r->addRoute('GET', $baseUrl . '/sitemap.xml', 'sitemap');
             $r->addRoute('GET', $baseUrl . '/robots.txt', 'robots');
-            $r->addRoute('GET', $baseUrl . '/{slug}', 'views/dynamic');
+            $r->addRoute('GET', $baseUrl . '/{slug}', 'dynamic');
         });
     }
 
@@ -153,11 +153,11 @@ class Router
         switch ($routeInfo[0]) {
             case Dispatcher::NOT_FOUND:
                 header("HTTP/1.0 404 Not Found");
-                echo $this->renderView('views/404');
+                echo $this->renderView('404');
                 break;
             case Dispatcher::METHOD_NOT_ALLOWED:
                 header("HTTP/1.0 405 Method Not Allowed");
-                echo $this->renderView('views/405');
+                echo $this->renderView('405');
                 break;
             case Dispatcher::FOUND:
                 $view = $routeInfo[1];

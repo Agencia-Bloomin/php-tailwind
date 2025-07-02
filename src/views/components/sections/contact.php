@@ -2,8 +2,8 @@
 
 use App\Core\Mailer;
 
-$config = require __DIR__ . '/../../config/email.php';
-$siteConfig = require __DIR__ . '/../../config/site.php';
+$config = require dirname(__DIR__, 3) . '/config/email.php';
+$siteConfig = require dirname(__DIR__, 3) . '/config/site.php';
 
 $feedback = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -154,7 +154,7 @@ $contactInfo = [
                         </div>
 
                         <div class="flex justify-end">
-                            <?= $this->insert('components/common/button', [
+                            <?= $this->insert('components/ui/button', [
                                 'text' => 'Enviar Solicitação',
                                 'type' => 'submit',
                                 'variant' => 'primary',

@@ -148,7 +148,7 @@ $ctaButton = [
                 <p class="text-neutral-200 mb-8 text-lg">Nossa equipe técnica está pronta para desenvolver soluções específicas para seu projeto industrial.</p>
             </div>
 
-            <?= $this->insert('components/common/button', [
+            <?= $this->insert('components/ui/button', [
                 'text' => $ctaButton['text'],
                 'href' => $ctaButton['href'],
                 'variant' => $ctaButton['variant'],
