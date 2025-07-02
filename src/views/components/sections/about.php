@@ -105,26 +105,3 @@ foreach ($attributes as $key => $value) {
         </div>
     </div>
 </section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const companyImage = document.querySelector('img[alt="Itecsoldas - Empresa de Soldagem a Laser"]');
-
-        if (companyImage) {
-            companyImage.addEventListener('error', function() {
-                this.src = '/assets/images/placeholder-company.jpg';
-                this.alt = 'Imagem não disponível';
-            });
-        }
-    });
-</script>
-
-<style>
-    .iconify {
-        transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .iconify:hover {
-        transform: scale(1.1);
-    }
-</style>

@@ -1,0 +1,47 @@
+/* Header Component Styles */
+
+#mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0 1rem 1rem 1rem;
+    z-index: 40;
+}
+
+/* Adiciona área de buffer para o submenu */
+.group:hover .group-hover\:block {
+    padding-top: 0.5rem;
+    margin-top: -0.5rem;
+}
+
+/* Ajusta o posicionamento do submenu */
+.group-hover\:block {
+    top: calc(100% + 0.5rem);
+}
+
+/* Estilo para o dropdown mobile */
+.mobile-dropdown {
+    background-color: #f9fafb;
+    border-radius: 0.375rem;
+    margin: 0.5rem 0;
+}
+
+/* Estilização da scrollbar */
+.overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

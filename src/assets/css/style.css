@@ -1,6 +1,18 @@
 @import "tailwindcss";
 @import '@glidejs/glide/dist/css/glide.core.min.css';
 
+/* Component Styles */
+@import './components/_header.css';
+@import './components/_footer.css';
+@import './components/_faq.css';
+@import './components/_hero.css';
+@import './components/_about.css';
+@import './components/_contact.css';
+@import './components/_detailedServices.css';
+@import './components/_services.css';
+@import './components/_privacy-popup.css';
+@import './components/_404.css';
+
 @theme {
   /* Color Tokens */
   --color-primary: #003366;

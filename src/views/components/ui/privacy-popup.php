@@ -6,26 +6,3 @@
     <p class="text-sm mb-4 text-black">Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade. Para mais detalhes, <a href="/politica-de-privacidade" class="text-primary hover:underline">clique aqui</a>.</p>
     <button id="accept-privacy" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors w-full">Aceitar</button>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const popup = document.getElementById('privacy-popup');
-        const acceptButton = document.getElementById('accept-privacy');
-        
-        if (!localStorage.getItem('privacyAccepted')) {
-            popup.style.display = 'block';
-            setTimeout(() => {
-                popup.classList.remove('opacity-0');
-                popup.classList.add('opacity-100');
-            }, 100);
-        }
-        
-        acceptButton.addEventListener('click', function() {
-            localStorage.setItem('privacyAccepted', 'true');
-            popup.classList.add('opacity-0');
-            setTimeout(() => {
-                popup.style.display = 'none';
-            }, 300);
-        });
-    });
-</script> 

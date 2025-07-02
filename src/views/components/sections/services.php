@@ -131,29 +131,3 @@ foreach ($attributes as $key => $value) {
         </div>
     </div>
 </section>
-
-<style>
-    @keyframes float {
-
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
-
-        50% {
-            transform: translateY(-20px);
-        }
-    }
-
-    .animate-pulse {
-        animation: float 3s ease-in-out infinite;
-    }
-
-    .delay-500 {
-        animation-delay: 0.5s;
-    }
-
-    .delay-1000 {
-        animation-delay: 1s;
-    }
-</style>

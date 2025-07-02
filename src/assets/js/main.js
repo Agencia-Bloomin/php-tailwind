@@ -2,6 +2,17 @@ import '../css/style.css';
 import "@iconify/iconify";
 import Glide from '@glidejs/glide';
 
+/* Component Scripts */
+import './components/_header.js';
+import './components/_footer.js';
+import './components/_faq.js';
+import './components/_hero.js';
+import './components/_about.js';
+import './components/_contact.js';
+import './components/_detailedServices.js';
+import './components/_services.js';
+import './components/_privacy-popup.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.glide')) {
         new Glide('.glide', {

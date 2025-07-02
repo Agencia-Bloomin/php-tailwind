@@ -1,0 +1,9 @@
+/* Detailed Services Component Styles */
+
+.services-section {
+    background: linear-gradient(
+        135deg, 
+        var(--color-neutral-50) 0%, 
+        var(--color-neutral-100) 100%
+    );
+} 
