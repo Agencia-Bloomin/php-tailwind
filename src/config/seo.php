@@ -23,7 +23,7 @@ return [
         'og_title' => 'Serviços de Soldagem e Corte a Laser - Celyna',
         'og_description' => 'Oferecemos serviços especializados de soldagem MIG/MAG, TIG, eletrodo revestido e corte a laser.',
         'og_image' => '/src/assets/images/soldagem.jpg',
-        'canonical' => '/services'
+        'canonical' => '/servicos'
     ],
 
     // Página de contato
@@ -34,7 +34,7 @@ return [
         'og_title' => 'Contato - Celyna Soldagem e Corte a Laser',
         'og_description' => 'Entre em contato conosco para orçamentos de soldagem e corte a laser em São Paulo.',
         'og_image' => '/src/assets/images/local.webp',
-        'canonical' => '/contact'
+        'canonical' => '/contato'
     ],
 
     // Página sobre nós
@@ -45,7 +45,7 @@ return [
         'og_title' => 'Sobre Nós - Celyna Soldagem e Corte a Laser',
         'og_description' => 'Conheça a Celyna, empresa especializada em soldagem e corte a laser em São Paulo.',
         'og_image' => '/src/assets/images/bancada.webp',
-        'canonical' => '/about'
+        'canonical' => '/sobre'
     ],
 
     // Página de FAQ
@@ -89,7 +89,7 @@ return [
         'og_title' => 'Mapa do Site - Celyna',
         'og_description' => 'Lista completa de todas as páginas disponíveis em nosso site',
         'og_image' => '/src/assets/images/local.webp',
-        'canonical' => '/sitemap'
+        'canonical' => '/mapa-site'
     ],
 
     // Configurações globais
