@@ -1,13 +1,14 @@
 <?php $siteConfig = require __DIR__ . '/../../config/site.php'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $this->e($title ?? 'SEO Template') ?></title>
     <meta name="description" content="<?= $this->e($description ?? 'Descrição padrão do site') ?>">
     <meta name="keywords" content="<?= $this->e($keywords ?? 'palavras-chave, seo, template') ?>">
-    
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?= $this->e($ogUrl ?? 'https://seusite.com') ?>">
     <meta property="og:title" content="<?= $this->e($ogTitle ?? $title ?? 'SEO Template') ?>">
@@ -24,35 +25,35 @@
 
     <?php if ($siteConfig['gtm']): ?>
         <script>
-			function loadGTM() {
-				window.dataLayer = window.dataLayer || [];
-				window.dataLayer.push({
-					'gtm.start': new Date().getTime(),
-					event: 'gtm.js'
-				});
-				var gtmScript = document.createElement('script');   
-				gtmScript.async = true;
-				gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=<?= $siteConfig['gtm'] ?>';
-				document.getElementsByTagName('head')[0].appendChild(gtmScript);
-			}
+            function loadGTM() {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var gtmScript = document.createElement('script');
+                gtmScript.async = true;
+                gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=<?= $siteConfig['gtm'] ?>';
+                document.getElementsByTagName('head')[0].appendChild(gtmScript);
+            }
 
-			function checkUserActivity() {
-				document.removeEventListener('mousemove', checkUserActivity);
-				document.removeEventListener('keydown', checkUserActivity);
-				document.removeEventListener('scroll', checkUserActivity);
-				loadGTM();
-			}
+            function checkUserActivity() {
+                document.removeEventListener('mousemove', checkUserActivity);
+                document.removeEventListener('keydown', checkUserActivity);
+                document.removeEventListener('scroll', checkUserActivity);
+                loadGTM();
+            }
 
-			document.addEventListener('mousemove', checkUserActivity, {
-				once: true
-			});
-			document.addEventListener('keydown', checkUserActivity, {
-				once: true
-			});
-			document.addEventListener('scroll', checkUserActivity, {
-				once: true
-			});
-		</script>
+            document.addEventListener('mousemove', checkUserActivity, {
+                once: true
+            });
+            document.addEventListener('keydown', checkUserActivity, {
+                once: true
+            });
+            document.addEventListener('scroll', checkUserActivity, {
+                once: true
+            });
+        </script>
     <?php endif; ?>
 
     <?php
@@ -74,22 +75,24 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </head>
+
 <body>
-    <?= $this->insert('components/sections/header') ?>
+    <?= $this->insert('components/layout/header') ?>
 
     <main class="min-h-[30vh] mt-[80px]">
         <?= $this->section('main_content') ?>
     </main>
 
-    <?= $this->insert('components/sections/footer') ?>
+    <?= $this->insert('components/layout/footer') ?>
 
-    <?= $this->insert('components/common/whatsapp-float') ?>
+    <?= $this->insert('components/ui/whatsapp-float') ?>
 
-    <?= $this->insert('components/common/privacy-popup') ?>
+    <?= $this->insert('components/ui/privacy-popup') ?>
 
     <?php if ($siteConfig['gtm']): ?>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?= $siteConfig['gtm'] ?>"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <?php endif; ?>
 </body>
-</html> 
+
+</html>

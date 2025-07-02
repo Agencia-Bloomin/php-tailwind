@@ -1,7 +1,7 @@
 <?php
 $siteConfig = require __DIR__ . '/../config/site.php';
 
-$this->layout('views/layouts/base', [
+$this->layout('views/pages/base', [
     'title' => 'Página Inicial - ' . $siteConfig['name'],
     'description' => $siteConfig['tagline'],
     'keywords' => $siteConfig['seo']['keywords']

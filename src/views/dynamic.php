@@ -1,4 +1,5 @@
 <?php
+
 use App\Core\ApiClient;
 
 $api = new ApiClient();
@@ -12,7 +13,7 @@ if (!$pageData || empty($pageData['content'])) {
 }
 
 
-$this->layout('views/layouts/base', [
+$this->layout('views/pages/base', [
     'title' => $pageData['title'] . ' - SEO Template',
     'description' => $pageData['description'],
     'keywords' => $pageData['keywords'] ?? 'seo, template, página dinâmica',
