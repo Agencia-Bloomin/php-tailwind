@@ -1,5 +1,9 @@
 import '../css/style.css';
+import '../css/animations.css';
 import "@iconify/iconify";
+
+/* Animation System */
+import './animations.js';
 
 /* Component Scripts */
 import './components/_header.js';

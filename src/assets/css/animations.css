@@ -1,0 +1,46 @@
+/**
+ * Estilos CSS para otimizar animações GSAP
+ * Apenas otimizações de performance, sem estados visuais
+ */
+
+/* Otimizações de performance para animações */
+[data-animate] {
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Force hardware acceleration */
+    backface-visibility: hidden;
+}
+
+/* Otimizações para parallax */
+[data-animate="parallax"] {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Melhorias para contadores */
+[data-animate="counter"] {
+    display: inline-block;
+    min-width: 1em;
+}
+
+/* Reduzir motion para usuários que preferem */
+@media (prefers-reduced-motion: reduce) {
+    [data-animate],
+    [data-animate-child] {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Estados de foco para elementos animados */
+[data-animate]:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Otimizações para elementos com imagens */
+[data-animate] img {
+    will-change: transform;
+    transform: translateZ(0);
+} 
