@@ -6,17 +6,20 @@ use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use League\Plates\Engine;
 use function FastRoute\simpleDispatcher;
+use App\Core\SchemaHelper;
 
 class Router
 {
     private Dispatcher $dispatcher;
     private Engine $templates;
     private ApiClient $apiClient;
+    private SchemaHelper $schemaHelper;
 
     public function __construct()
     {
         $this->templates = new Engine(dirname(__DIR__) . '/views');
         $this->apiClient = new ApiClient();
+        $this->schemaHelper = new SchemaHelper();
 
         $this->templates->addData(['year' => date('Y')]);
 
@@ -44,12 +47,45 @@ class Router
 
     private function renderView(string $view, array $data = []): string
     {
+        // Adicionar schema se não estiver definido
+        if (!isset($data['schema'])) {
+            $data['schema'] = $this->schemaHelper->generateSchema($view);
+        }
+
+        // Processar variáveis no SEO config
+        $data = $this->processSeoVariables($data);
+
         return $this->templates->render($view, $data);
+    }
+
+    private function processSeoVariables(array $data): array
+    {
+        $siteConfig = require dirname(__DIR__) . '/config/site.php';
+        $seoConfig = require dirname(__DIR__) . '/config/seo.php';
+
+        // Substituir variáveis em strings
+        $replacements = [
+            '{{site_name}}' => $siteConfig['site_name'],
+            '{{company_name}}' => $siteConfig['company_name'],
+            '{{home_description}}' => $seoConfig['home']['description'],
+            '{{twitter_site}}' => $siteConfig['social']['twitter'] ?: '@' . strtolower($siteConfig['company_name']),
+            '{{twitter_creator}}' => $siteConfig['social']['twitter'] ?: '@' . strtolower($siteConfig['company_name'])
+        ];
+
+        // Processar recursivamente os arrays
+        array_walk_recursive($data, function (&$value) use ($replacements) {
+            if (is_string($value)) {
+                $value = str_replace(array_keys($replacements), array_values($replacements), $value);
+            }
+        });
+
+        return $data;
     }
 
     private function generateSitemap(): string
     {
-        $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+        $siteConfig = require dirname(__DIR__) . '/config/site.php';
+        $baseUrl = $siteConfig['url'];
 
         // Rotas estáticas
         $staticRoutes = [
@@ -132,7 +168,8 @@ class Router
 
     private function generateRobotsTxt(): string
     {
-        $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+        $siteConfig = require dirname(__DIR__) . '/config/site.php';
+        $baseUrl = $siteConfig['url'];
         $sitemapUrl = $baseUrl . '/sitemap.xml';
 
         $content = "User-agent: *\n";
