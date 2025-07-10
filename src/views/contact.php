@@ -11,5 +11,13 @@ $this->layout('layout/base', [
 ?>
 
 <?php $this->start('main_content') ?>
+    <?= $this->insert('components/sections/hero', [
+        'heroTitle' => $seoConfig['contact']['hero_title'],
+        'heroSubtitle' => $seoConfig['contact']['description'],
+        'breadcrumb' => [
+            ['label' => 'Home', 'href' => '/'],
+            ['label' => 'Contato']
+        ]
+    ]) ?>
     <?= $this->insert('components/sections/contact') ?>
 <?php $this->stop() ?> 

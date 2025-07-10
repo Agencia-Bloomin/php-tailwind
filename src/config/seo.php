@@ -7,6 +7,7 @@ return [
     // Página inicial
     'home' => [
         'title' => '{{site_name}}',
+        'hero_title' => 'Bem-vindo à Bloomin!',
         'description' => '{{site_name}} lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'keywords' => 'template, php, bloomin',
         'og_title' => '{{site_name}}',
@@ -18,6 +19,7 @@ return [
     // Página de serviços
     'services' => [
         'title' => 'Serviços - {{site_name}}',
+        'hero_title' => 'Nossos Serviços',
         'description' => 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'keywords' => 'template, php, bloomin',
         'og_title' => 'Serviços - {{site_name}}',
@@ -29,6 +31,7 @@ return [
     // Página de contato
     'contact' => [
         'title' => 'Contato - {{site_name}}',
+        'hero_title' => 'Entre em Contato',
         'description' => 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'keywords' => 'template, php, bloomin',
         'og_title' => 'Contato - {{site_name}}',
@@ -40,6 +43,7 @@ return [
     // Página sobre nós
     'about' => [
         'title' => 'Sobre Nós - {{site_name}}',
+        'hero_title' => 'Sobre Nós',
         'description' => 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'keywords' => 'template, php, bloomin',
         'og_title' => 'Sobre Nós - {{site_name}}',
@@ -51,6 +55,7 @@ return [
     // Página de FAQ
     'faq' => [
         'title' => 'Perguntas Frequentes - {{site_name}}',
+        'hero_title' => 'Perguntas Frequentes',
         'description' => 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'keywords' => 'template, php, bloomin',
         'og_title' => 'Perguntas Frequentes - {{site_name}}',
@@ -62,6 +67,7 @@ return [
     // Página 404
     '404' => [
         'title' => 'Página não encontrada - {{site_name}}',
+        'hero_title' => 'Página não encontrada',
         'description' => 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'keywords' => 'template, php, bloomin',
         'og_title' => 'Página não encontrada - {{site_name}}',
@@ -73,6 +79,7 @@ return [
     // Página 405
     '405' => [
         'title' => 'Método não permitido - 405',
+        'hero_title' => 'Método não permitido',
         'description' => 'lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'keywords' => 'template, php, bloomin',
         'og_title' => 'Método não permitido - 405',
@@ -84,6 +91,7 @@ return [
     // Página Sitemap
     'sitemap' => [
         'title' => 'Mapa do Site - {{site_name}}',
+        'hero_title' => 'Mapa do Site',
         'description' => 'Lista completa de todas as páginas disponíveis em nosso site',
         'keywords' => 'sitemap, mapa do site, páginas, navegação',
         'og_title' => 'Mapa do Site - {{site_name}}',
