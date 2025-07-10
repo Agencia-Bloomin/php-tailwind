@@ -1,7 +1,4 @@
 <?php
-$title = $title ?? 'Precisão Laser em Soldagem Industrial';
-$subtitle = $subtitle ?? 'Tecnologia de alta performance para aplicações de alta exigência';
-$description = $description ?? 'Transformando desafios em soluções de soldagem com tecnologia laser de última geração. Oferecemos precisão milimétrica e qualidade excepcional para os mais diversos setores industriais.';
 $image = $image ?? 'src/assets/images/soldagem.jpg';
 $features = $features ?? [
     [
@@ -45,7 +42,7 @@ foreach ($attributes as $key => $value) {
                 <div class="space-y-8">
                     <div class="inline-flex items-center text-white px-4 py-2 rounded-full bg-primary bg-opacity-10 text-sm font-medium backdrop-blur-sm">
                         <span class="iconify w-4 h-4 mr-2" data-icon="heroicons:bolt"></span>
-                        Especialistas em soldagem de precisão a laser
+                        Lorem Ipsum Dolor
                     </div>
 
                     <div class="space-y-4">
