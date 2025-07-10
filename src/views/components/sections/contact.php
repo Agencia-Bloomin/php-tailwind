@@ -4,6 +4,8 @@ use App\Core\Mailer;
 
 $config = require dirname(__DIR__, 3) . '/config/email.php';
 $siteConfig = require dirname(__DIR__, 3) . '/config/site.php';
+$whatsappNumber = $siteConfig['whatsapp']['number'] ?? '';
+$hasWhatsapp = !empty($whatsappNumber);
 
 $feedback = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -65,15 +67,11 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
 ?>
 
 <section id="contato" class="contact-section py-32 bg-primary relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-                <pattern id="circuit" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 0 10 L 20 10 M 10 0 L 10 20 M 5 5 L 15 5 M 5 15 L 15 15" stroke="white" stroke-width="0.5" fill="none" />
-                </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#circuit)" />
-        </svg>
+    <!-- Novo efeito de fundo: gradiente fluido com shapes -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-gradient-to-br from-primary2/40 to-primary/80 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-primary/30 to-primary2/60 rounded-full blur-2xl opacity-50"></div>
+        <div class="absolute top-1/2 left-1/2 w-[200px] h-[200px] bg-white/10 rounded-full blur-xl opacity-30 -translate-x-1/2 -translate-y-1/2"></div>
     </div>
 
     <div class="absolute top-20 left-20 w-3 h-3 bg-white/30 rounded-full animate-ping"></div>
@@ -124,14 +122,12 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                 <?php else: ?>
                     <div class="lg:col-span-5">
                     <?php endif; ?>
-                    <div class="bg-white rounded-3xl p-10 shadow-2xl">
+                    <div class="bg-white rounded-3xl p-10 shadow-2xl relative z-10">
                         <h3 class="text-3xl font-bold mb-8 text-primary3">
                             Solicite seu Orçamento
                         </h3>
-
                         <?= $feedback ?>
-
-                        <form method="post" class="space-y-6">
+                        <form id="contact-form" method="post" class="space-y-6" autocomplete="off">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="relative">
                                     <label for="name" class="block text-sm font-medium text-primary2 mb-2">Nome Completo</label>
@@ -139,48 +135,43 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                                         class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
                                         placeholder="Seu nome completo">
                                 </div>
-
                                 <div class="relative">
-                                    <label for="email" class="block text-sm font-medium text-primary2 mb-2">Email Corporativo</label>
+                                    <label for="email" class="block text-sm font-medium text-primary2 mb-2">E-mail</label>
                                     <input type="email" name="email" id="email" required
                                         class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
-                                        placeholder="seu@empresa.com">
+                                        placeholder="seu@email.com">
                                 </div>
                             </div>
-
                             <div class="relative">
-                                <label for="subject" class="block text-sm font-medium text-primary2 mb-2">Tipo de Projeto</label>
-                                <select name="subject" id="subject" required
-                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50">
-                                    <option value="">Selecione o tipo de projeto</option>
-                                    <option value="Soldagem a Laser">Soldagem a Laser</option>
-                                    <option value="Soldagem MIG">Soldagem MIG</option>
-                                    <option value="Soldagem TIG">Soldagem TIG</option>
-                                    <option value="Eletrodo Revestido">Eletrodo Revestido</option>
-                                    <option value="Brasagem">Brasagem</option>
-                                    <option value="Punções e Matrizes">Punções e Matrizes</option>
-                                    <option value="Consulta Técnica">Consulta Técnica</option>
-                                </select>
+                                <label for="telefone" class="block text-sm font-medium text-primary2 mb-2">Telefone</label>
+                                <input type="tel" name="telefone" id="telefone" required
+                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
+                                    placeholder="(99) 99999-9999">
                             </div>
-
                             <div class="relative">
-                                <label for="message" class="block text-sm font-medium text-primary2 mb-2">Detalhes do Projeto</label>
+                                <label for="message" class="block text-sm font-medium text-primary2 mb-2">Mensagem</label>
                                 <textarea name="message" id="message" rows="6" required
                                     class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
-                                    placeholder="Descreva os detalhes técnicos do seu projeto, materiais envolvidos, especificações e prazo desejado..."></textarea>
+                                    placeholder="Descreva sua necessidade..."></textarea>
                             </div>
-
-                            <div class="flex justify-end">
-                                <?= $this->insert('components/ui/button', [
-                                    'text' => 'Enviar Solicitação',
-                                    'type' => 'submit',
-                                    'variant' => 'primary',
-                                    'size' => 'lg',
-                                    'attributes' => [
-                                        'class' => 'w-full md:w-auto px-8'
-                                    ]
-                                ]) ?>
+                            <div class="flex items-center gap-6 mt-4">
+                                <span class="text-sm text-primary3 font-medium">Enviar via:</span>
+                                <div class="flex gap-2" id="contact-toggle" data-whatsapp="<?= $hasWhatsapp ? $whatsappNumber : '' ?>">
+                                    <button type="button" class="toggle-btn active flex items-center gap-2 px-4 py-2 rounded-xl border border-primary bg-primary text-white font-semibold transition-all" data-method="email">
+                                        <span class="iconify" data-icon="mdi:email-outline"></span> E-mail
+                                    </button>
+                                    <?php if ($hasWhatsapp): ?>
+                                        <button type="button" class="toggle-btn flex items-center gap-2 px-4 py-2 rounded-xl border border-primary text-primary font-semibold transition-all" data-method="whatsapp">
+                                            <span class="iconify" data-icon="mdi:whatsapp"></span> WhatsApp
+                                        </button>
+                                    <?php endif; ?>
+                                </div>
                             </div>
+                            <button type="submit" id="contact-submit" class="w-full mt-6 flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-white font-bold text-lg shadow hover:bg-primary2 transition-all">
+                                <span class="iconify" data-icon="mdi:email-fast-outline"></span>
+                                Enviar por E-mail
+                            </button>
+                            <div id="contact-feedback" class="hidden mt-4 text-center text-base font-medium"></div>
                         </form>
                     </div>
                     </div>

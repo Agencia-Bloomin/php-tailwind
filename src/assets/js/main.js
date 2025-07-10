@@ -15,6 +15,7 @@ import './components/_detailedServices.js';
 import './components/_privacy-popup.js';
 import './components/_scroll-to-top.js';
 import './components/_banner-carousel.js';
+import './components/_contact.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.querySelector('[data-menu-button]');

@@ -30,6 +30,8 @@ $this->layout('layout/base', [
     
     <?= $this->insert('components/sections/faq') ?>
 
+    <?= $this->insert('components/sections/conversionContent') ?>
+
     <?= $this->insert('components/sections/contact') ?>
     
 <?php $this->stop() ?> 
