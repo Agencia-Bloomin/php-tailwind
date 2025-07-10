@@ -2,7 +2,7 @@
 $companyImage = $companyImage ?? [
     'src' => 'src/assets/images/about.jpg',
     'alt' => 'Banner institucional',
-    'caption' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+    'caption' => 'Nossa história é marcada pela inovação e excelência.'
 ];
 $attributes = $attributes ?? [];
 $customClass = $customClass ?? '';
@@ -11,71 +11,69 @@ $attrs = '';
 foreach ($attributes as $key => $value) {
     $attrs .= " $key=\"$value\"";
 }
+
+// Conteúdo das abas
+$tabs = [
+    'missao' => [
+        'label' => 'Missão',
+        'icon' => 'heroicons:flag',
+        'content' => 'Nossa missão é entregar soluções industriais inovadoras, com qualidade, agilidade e foco total na satisfação do cliente.'
+    ],
+    'visao' => [
+        'label' => 'Visão',
+        'icon' => 'heroicons:eye',
+        'content' => 'Ser referência nacional em soldagem e corte a laser, reconhecida pela excelência técnica e compromisso com resultados.'
+    ],
+    'valores' => [
+        'label' => 'Valores',
+        'icon' => 'heroicons:star',
+        'content' => 'Ética, inovação, respeito, compromisso com o cliente e melhoria contínua em todos os processos.'
+    ]
+];
 ?>
 
 <section class="relative py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 overflow-hidden" <?= $attrs ?>>
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-primary opacity-8 rounded-full mix-blend-screen filter blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-8 rounded-full mix-blend-screen filter blur-3xl -translate-x-1/2 translate-y-1/2"></div>
-        <div class="absolute top-1/3 left-1/4 w-32 h-32 bg-primary opacity-6 rounded-full mix-blend-screen filter blur-2xl"></div>
-        <div class="absolute bottom-1/4 right-1/3 w-48 h-48 bg-primary opacity-5 rounded-full mix-blend-screen filter blur-3xl"></div>
-    </div>
-
     <div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="relative group">
-                <div class="rounded-2xl overflow-hidden shadow-2xl transition-all duration-300 group-hover:shadow-2xl group-hover:-translate-y-2 border border-white/10">
+                <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 bg-white/5 relative">
                     <img
                         src="<?= $this->e($companyImage['src']) ?>"
                         alt="<?= $this->e($companyImage['alt']) ?>"
-                        title="Banner institucional"
-                        class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <?php if (!empty($companyImage['caption'])): ?>
+                        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-[90%] text-center z-10">
+                            <span class="inline-block bg-white/70 text-primary3 text-base font-semibold rounded-full px-6 py-2 shadow-md backdrop-blur-sm">
+                                <?= $this->e($companyImage['caption']) ?>
+                            </span>
+                        </div>
+                    <?php endif; ?>
                 </div>
-                <?php if (!empty($companyImage['caption'])): ?>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent text-white p-6 text-center rounded-2xl">
-                        <p class="text-sm font-medium backdrop-blur-sm"><?= $this->e($companyImage['caption']) ?></p>
-                    </div>
-                <?php endif; ?>
-
-                <div class="absolute -top-4 -left-4 w-full h-full border-2 border-primary/30 rounded-2xl -z-10"></div>
             </div>
 
-            <div class="space-y-8 lg:pl-8">
-                <div class="space-y-6">
-                    <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium border border-white/20">
-                        <span class="iconify w-4 h-4 mr-2 text-white" data-icon="heroicons:bolt"></span>
-                        Lorem Ipsum Dolor
-                    </div>
-
-                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-lg">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            <div class="space-y-10 lg:pl-8">
+                <div class="mb-8">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
+                        Sobre a Bloomin
                     </h2>
-
-                    <p class="text-lg text-primary4 leading-relaxed drop-shadow-sm">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
+                    <p class="text-lg text-primary4 leading-relaxed drop-shadow-sm max-w-2xl">
+                        Somos especialistas em soldagem e corte a laser, atuando com tecnologia de ponta e equipe altamente qualificada para atender as demandas mais exigentes do mercado industrial.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
-                        <div class="flex items-center space-x-3">
-                            <span class="iconify w-6 h-6 text-white" data-icon="heroicons:cpu-chip"></span>
-                            <div>
-                                <h3 class="text-white font-semibold">Tecnologia Laser</h3>
-                                <p class="text-primary2 text-sm">Precisão milimétrica</p>
-                            </div>
-                        </div>
+                <!-- Tabs Missão, Visão, Valores -->
+                <div>
+                    <div class="flex space-x-2 mb-6" id="about-tabs">
+                        <?php foreach ($tabs as $key => $tab): ?>
+                            <button type="button" class="about-tab px-6 py-3 rounded-full font-semibold flex items-center gap-2 bg-white/10 text-white hover:bg-primary/80 transition-all focus:outline-none" data-tab="<?= $key ?>">
+                                <span class="iconify w-5 h-5" data-icon="<?= $tab['icon'] ?>"></span>
+                                <?= $tab['label'] ?>
+                            </button>
+                        <?php endforeach; ?>
                     </div>
-
-                    <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20">
-                        <div class="flex items-center space-x-3">
-                            <span class="iconify w-6 h-6 text-white" data-icon="heroicons:shield-check"></span>
-                            <div>
-                                <h3 class="text-white font-semibold">Qualidade Garantida</h3>
-                                <p class="text-primary2 text-sm">ISO certificado</p>
-                            </div>
-                        </div>
+                    <div class="bg-white/10 rounded-2xl p-6 min-h-[120px] text-white text-lg shadow-inner" id="about-tab-content">
+                        <?= $tabs['missao']['content'] ?>
                     </div>
                 </div>
 
@@ -89,7 +87,6 @@ foreach ($attributes as $key => $value) {
                             'class' => 'group flex items-center justify-center space-x-2 shadow-xl hover:shadow-2xl transition-all duration-300 border-1 border-white/30'
                         ]
                     ]) ?>
-
                     <?= $this->insert('components/ui/button', [
                         'text' => 'Fale com Ireno e Douglas',
                         'href' => './contato',
@@ -103,4 +100,25 @@ foreach ($attributes as $key => $value) {
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.about-tab');
+            const content = document.getElementById('about-tab-content');
+            const tabContents = {
+                'missao': <?= json_encode($tabs['missao']['content']) ?>,
+                'visao': <?= json_encode($tabs['visao']['content']) ?>,
+                'valores': <?= json_encode($tabs['valores']['content']) ?>
+            };
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('bg-primary', 'text-white', 'shadow-lg'));
+                    this.classList.add('bg-primary', 'text-white', 'shadow-lg');
+                    const key = this.getAttribute('data-tab');
+                    content.innerHTML = tabContents[key];
+                });
+            });
+            // Ativar a primeira aba por padrão
+            if (tabs.length) tabs[0].classList.add('bg-primary', 'text-white', 'shadow-lg');
+        });
+    </script>
 </section>
