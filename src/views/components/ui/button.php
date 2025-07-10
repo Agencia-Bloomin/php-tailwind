@@ -10,7 +10,7 @@ $isLink = isset($href) && $href !== null;
 $baseClasses = 'inline-flex items-center justify-center border rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300';
 
 $variants = [
-    'primary' => 'bg-primary text-white hover:bg-primary-dark border-transparent focus:ring-primary shadow-md hover:shadow-lg hover:scale-105',
+    'primary' => 'bg-primary text-white hover:bg-primary border-transparent focus:ring-primary shadow-md hover:shadow-lg hover:scale-105',
     'secondary' => 'bg-primary4 text-primary3 hover:bg-primary2 border-transparent focus:ring-primary4 shadow-sm hover:shadow-md',
     'outline' => 'bg-transparent text-primary hover:bg-primary hover:text-white border-primary focus:ring-primary hover:border-primary-dark transition-all duration-300'
 ];

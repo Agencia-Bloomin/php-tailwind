@@ -4,5 +4,5 @@
         Política de Privacidade
     </h2>
     <p class="text-sm mb-4 text-black">Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade. Para mais detalhes, <a href="/politica-de-privacidade" title="Ler Política de Privacidade" class="text-primary hover:underline">clique aqui</a>.</p>
-    <button id="accept-privacy" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark transition-colors w-full">Aceitar</button>
+    <button id="accept-privacy" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary transition-colors w-full">Aceitar</button>
 </div>

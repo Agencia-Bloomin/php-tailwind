@@ -1,13 +1,13 @@
-:root {
+@theme {
   /* Cores principais do tema */
-  --theme-color: #003366;
-  --theme-color2: #0066CC;
-  --theme-color3: #001A33;
-  --theme-color4: #c3dafe;
+  --color-primary: #003366;
+  --color-primary2: #0066CC;
+  --color-primary3: #001A33;
+  --color-primary4: #c3dafe;
 
   /* Fontes globais */
-  --font-1: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --font-2: 'Roboto Mono', 'Courier New', monospace;
+  --font-main: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Roboto Mono", "Courier New", monospace;
 }
 
 @import "tailwindcss";
@@ -27,8 +27,8 @@
 @import './components/_whatsapp-float.css';
 
 body {
-  font-family: var(--font-1);
-  color: var(--theme-color3);
+  font-family: theme('fontFamily.main');
+  color: theme('colors.primary3');
   background: #fff;
 }
 

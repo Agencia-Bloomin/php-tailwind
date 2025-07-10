@@ -1,17 +1,11 @@
 module.exports = {
+  content: [
+    "./src/**/*.{php,html,js}",
+  ],
   theme: {
-    extend: {
-      colors: {
-        'primary': 'var(--theme-color)',
-        'primary2': 'var(--theme-color2)',
-        'primary3': 'var(--theme-color3)',
-        'primary4': 'var(--theme-color4)',
-      },
-      fontFamily: {
-        'main': ['Inter', 'sans-serif'],
-        'mono': ['Roboto Mono', 'monospace'],
-      },
-    },
+    // A configuração de extensão do tema agora é feita no seu arquivo CSS principal
+    // usando a diretiva @theme do Tailwind CSS v4.
+    extend: {},
   },
-  // ...restante da config
-} 
+  plugins: [],
+};
