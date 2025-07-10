@@ -99,6 +99,8 @@ $seoConfig = require dirname(__DIR__, 2) . '/config/seo.php';
 
     <?= $this->insert('components/ui/whatsapp-float') ?>
 
+    <?= $this->insert('components/ui/scroll-to-top') ?>
+
     <?= $this->insert('components/ui/privacy-popup') ?>
 
     <?php if ($siteConfig['gtm']): ?>

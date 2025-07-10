@@ -1,0 +1,184 @@
+/* Scroll to Top Component */
+#scroll-to-top {
+    right: 1.5rem;
+    left: auto;
+    bottom: 1.5rem;
+    z-index: 1050;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 6.5rem;
+    z-index: 1051;
+}
+
+/* Scroll to Top Float */
+.scroll-to-top-float {
+    position: fixed;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 1050;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#scroll-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#scroll-to-top-btn {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    background: #fff !important;
+    border-radius: 9999px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+#scroll-to-top-btn:hover, #scroll-to-top-btn:focus {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    background: #f0f6ff;
+}
+
+#scroll-to-top-btn svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-primary, #003366);
+    transition: color 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+
+#scroll-to-top-btn:hover svg, #scroll-to-top-btn:focus svg {
+    color: var(--color-primary-light, #0066CC);
+    transform: none;
+}
+
+#scroll-progress-border {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    border: 1px solid var(--color-primary, #003366);
+    pointer-events: none;
+    z-index: 2;
+    box-sizing: border-box;
+    /* Inicialmente, borda invisível */
+    opacity: 1;
+    transition: border-color 0.2s, opacity 0.2s;
+}
+
+#scroll-to-top-btn:active {
+    transform: scale(0.97);
+}
+
+/* Progressivo: será controlado via stroke-dasharray no JS */
+#scroll-progress-border svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Animação de entrada */
+@keyframes scrollToTopFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#scroll-to-top.visible {
+    animation: scrollToTopFadeIn 0.3s ease-out;
+}
+
+/* Efeito de pulso quando aparece */
+@keyframes scrollToTopPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#scroll-to-top.visible #scroll-to-top-btn {
+    animation: scrollToTopPulse 0.6s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #scroll-to-top {
+        right: 1rem;
+        left: auto;
+        bottom: 1rem;
+    }
+    #scroll-to-top-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    #scroll-to-top-btn svg {
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+    .whatsapp-float {
+        right: 1rem;
+        bottom: 5.2rem;
+    }
+    .scroll-to-top-float {
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #scroll-to-top {
+        right: 0.75rem;
+        left: auto;
+        bottom: 0.75rem;
+    }
+    #scroll-to-top-btn {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+    #scroll-to-top-btn svg {
+        width: 0.9rem;
+        height: 0.9rem;
+    }
+    .whatsapp-float {
+        right: 0.75rem;
+        bottom: 4.5rem;
+    }
+    .scroll-to-top-float {
+        right: 0.75rem;
+        bottom: 0.75rem;
+    }
+}
+
+/* Acessibilidade */
+#scroll-to-top-btn:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px #90cdf4;
+}
+
+/* Modo escuro (se aplicável) */
+@media (prefers-color-scheme: dark) {
+    #scroll-to-top-btn {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+} 

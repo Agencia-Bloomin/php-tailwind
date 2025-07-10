@@ -7,7 +7,7 @@ if (!empty($whatsapp['number'])) {
     $whatsappUrl = "https://wa.me/{$whatsapp['number']}?text={$message}";
 ?>
 
-    <div class="fixed bottom-6 right-6 z-50">
+    <div class="whatsapp-float">
         <a href="<?= $whatsappUrl ?>"
             target="_blank"
             rel="noopener noreferrer"

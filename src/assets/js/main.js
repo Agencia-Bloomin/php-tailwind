@@ -10,6 +10,7 @@ import './components/_hero.js';
 import './components/_about.js';
 import './components/_detailedServices.js';
 import './components/_privacy-popup.js';
+import './components/_scroll-to-top.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('.glide')) {

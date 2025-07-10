@@ -11,7 +11,9 @@
 @import './components/_detailedServices.css';
 @import './components/_services.css';
 @import './components/_privacy-popup.css';
+@import './components/_scroll-to-top.css';
 @import './components/_404.css';
+@import './components/_whatsapp-float.css';
 
 @theme {
   /* Color Tokens */
