@@ -1,7 +1,7 @@
 <?php
 $year = date('Y');
 $siteConfig = require dirname(__DIR__, 3) . '/config/site.php';
-$companyName = $companyName ?? $siteConfig['name'];
+$companyName = $siteConfig['company_name'];
 
 $footerLinks = [
     [
@@ -16,11 +16,19 @@ $footerLinks = [
     ]
 ];
 
-$socialLinks = [
-    ['icon' => 'mdi:linkedin', 'href' => $siteConfig['social']['linkedin'] ?? '#'],
-    ['icon' => 'mdi:instagram', 'href' => $siteConfig['social']['instagram'] ?? '#'],
-    ['icon' => 'mdi:youtube', 'href' => $siteConfig['social']['youtube'] ?? '#']
-];
+$socialLinks = [];
+if (!empty($siteConfig['social']['linkedin'])) {
+    $socialLinks[] = ['icon' => 'mdi:linkedin', 'href' => $siteConfig['social']['linkedin']];
+}
+if (!empty($siteConfig['social']['instagram'])) {
+    $socialLinks[] = ['icon' => 'mdi:instagram', 'href' => $siteConfig['social']['instagram']];
+}
+if (!empty($siteConfig['social']['facebook'])) {
+    $socialLinks[] = ['icon' => 'mdi:facebook', 'href' => $siteConfig['social']['facebook']];
+}
+if (!empty($siteConfig['social']['youtube'])) {
+    $socialLinks[] = ['icon' => 'mdi:youtube', 'href' => $siteConfig['social']['youtube']];
+}
 ?>
 
 <footer class="bg-gradient-to-br from-primary to-primary-dark text-white py-16 relative overflow-hidden">
@@ -40,14 +48,16 @@ $socialLinks = [
                     </h3>
                 </div>
                 <p class="text-gray-300 leading-relaxed">Especialistas em soluções de alta precisão para aplicações industriais. Transformamos desafios técnicos em inovações confiáveis, com foco em desempenho, durabilidade e excelência nos resultados.</p>
-                <div class="flex space-x-4">
-                    <?php foreach ($socialLinks as $social): ?>
-                        <a href="<?= $this->e($social['href']) ?>"
-                            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-110">
-                            <span class="iconify w-6 h-6" data-icon="<?= $this->e($social['icon']) ?>"></span>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
+                <?php if (!empty($socialLinks)): ?>
+                    <div class="flex space-x-4">
+                        <?php foreach ($socialLinks as $social): ?>
+                            <a href="<?= $this->e($social['href']) ?>"
+                                class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-110">
+                                <span class="iconify w-6 h-6" data-icon="<?= $this->e($social['icon']) ?>"></span>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <?php foreach ($footerLinks as $section): ?>
@@ -71,46 +81,62 @@ $socialLinks = [
                 </div>
             <?php endforeach; ?>
 
-            <div class="space-y-6 lg:mx-auto max-w-md">
-                <h3 class="text-xl font-semibold text-white flex items-center space-x-3">
-                    <span class="iconify w-6 h-6 text-white/70" data-icon="hugeicons:contact-01"></span>
-                    <span>Contato</span>
-                </h3>
-                <ul class="space-y-3">
-                    <li>
-                        <a href="tel:<?= $this->e($siteConfig['phone']['number']) ?>"
-                            class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
-                            <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-                                data-icon="mdi:phone"></span>
-                            <span><?= $this->e($siteConfig['phone']['display']) ?></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/<?= $this->e($siteConfig['whatsapp']['number']) ?>"
-                            class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
-                            <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-                                data-icon="mdi:whatsapp"></span>
-                            <span><?= $this->e($siteConfig['whatsapp']['display']) ?></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:<?= $this->e($siteConfig['email']['primary']) ?>"
-                            class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
-                            <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-                                data-icon="mdi:email"></span>
-                            <span><?= $this->e($siteConfig['email']['primary']) ?></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://maps.google.com/?q=<?= urlencode($siteConfig['address']['full']) ?>"
-                            class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
-                            <span class="iconify w-9 h-9 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-                                data-icon="weui:location-filled"></span>
-                            <span><?= $this->e($siteConfig['address']['full']) ?></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <?php
+            $hasContactInfo = !empty($siteConfig['phone']['number']) ||
+                !empty($siteConfig['whatsapp']['number']) ||
+                !empty($siteConfig['email']['primary']) ||
+                !empty($siteConfig['address']['full']);
+            ?>
+            <?php if ($hasContactInfo): ?>
+                <div class="space-y-6 lg:mx-auto max-w-md">
+                    <h3 class="text-xl font-semibold text-white flex items-center space-x-3">
+                        <span class="iconify w-6 h-6 text-white/70" data-icon="hugeicons:contact-01"></span>
+                        <span>Contato</span>
+                    </h3>
+                    <ul class="space-y-3">
+                        <?php if (!empty($siteConfig['phone']['number'])): ?>
+                            <li>
+                                <a href="tel:<?= $this->e($siteConfig['phone']['number']) ?>"
+                                    class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
+                                    <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                                        data-icon="mdi:phone"></span>
+                                    <span><?= $this->e($siteConfig['phone']['display']) ?></span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($siteConfig['whatsapp']['number'])): ?>
+                            <li>
+                                <a href="https://wa.me/<?= $this->e($siteConfig['whatsapp']['number']) ?>"
+                                    class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
+                                    <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                                        data-icon="mdi:whatsapp"></span>
+                                    <span><?= $this->e($siteConfig['whatsapp']['display']) ?></span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($siteConfig['email']['primary'])): ?>
+                            <li>
+                                <a href="mailto:<?= $this->e($siteConfig['email']['primary']) ?>"
+                                    class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
+                                    <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                                        data-icon="mdi:email"></span>
+                                    <span><?= $this->e($siteConfig['email']['primary']) ?></span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($siteConfig['address']['full'])): ?>
+                            <li>
+                                <a href="https://maps.google.com/?q=<?= urlencode($siteConfig['address']['full']) ?>"
+                                    class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
+                                    <span class="iconify w-9 h-9 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                                        data-icon="weui:location-filled"></span>
+                                    <span><?= $this->e($siteConfig['address']['full']) ?></span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
         </div>
 
         <hr class="border-t border-white/20 my-12">

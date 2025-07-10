@@ -28,29 +28,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$contactInfo = [
-    [
+$contactInfo = [];
+
+// Adicionar WhatsApp apenas se estiver configurado
+if (!empty($siteConfig['whatsapp']['number'])) {
+    $contactInfo[] = [
         'icon' => 'heroicons:device-phone-mobile',
         'title' => 'WhatsApp Técnico',
         'content' => $siteConfig['whatsapp']['display'],
         'link' => 'https://wa.me/' . $siteConfig['whatsapp']['number'],
         'description' => 'Atendimento direto com nossa equipe'
-    ],
-    [
+    ];
+}
+
+// Adicionar email apenas se estiver configurado
+if (!empty($siteConfig['email']['primary'])) {
+    $contactInfo[] = [
         'icon' => 'heroicons:envelope',
         'title' => 'Email Corporativo',
         'content' => $siteConfig['email']['primary'],
         'link' => 'mailto:' . $siteConfig['email']['primary'],
         'description' => 'Orçamentos e consultas técnicas'
-    ],
-    [
+    ];
+}
+
+// Adicionar endereço apenas se estiver configurado
+if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['state'])) {
+    $contactInfo[] = [
         'icon' => 'heroicons:map-pin',
         'title' => 'Localização',
         'content' => $siteConfig['address']['city'] . ' - ' . $siteConfig['address']['state'],
         'link' => '#',
         'description' => 'Visite nossa unidade industrial'
-    ]
-];
+    ];
+}
 ?>
 
 <section id="contato" class="contact-section py-32 bg-primary relative overflow-hidden">
@@ -83,90 +94,94 @@ $contactInfo = [
         </div>
 
         <div class="grid lg:grid-cols-5 gap-12">
-            <div class="lg:col-span-2 space-y-8">
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                    <h3 class="text-2xl font-bold text-white mb-8">Fale Conosco</h3>
+            <?php if (!empty($contactInfo)): ?>
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                        <h3 class="text-2xl font-bold text-white mb-8">Fale Conosco</h3>
 
-                    <div class="space-y-6">
-                        <?php foreach ($contactInfo as $info): ?>
-                            <a href="<?= $info['link'] ?>" class="block group">
-                                <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
-                                    <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                                        <span class="iconify w-6 h-6 text-white" data-icon="<?= $info['icon'] ?>"></span>
+                        <div class="space-y-6">
+                            <?php foreach ($contactInfo as $info): ?>
+                                <a href="<?= $info['link'] ?>" class="block group">
+                                    <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
+                                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                                            <span class="iconify w-6 h-6 text-white" data-icon="<?= $info['icon'] ?>"></span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h4 class="text-white font-semibold mb-1"><?= $info['title'] ?></h4>
+                                            <p class="text-white/90 font-medium"><?= $info['content'] ?></p>
+                                            <p class="text-white/60 text-sm"><?= $info['description'] ?></p>
+                                        </div>
                                     </div>
-                                    <div class="flex-1">
-                                        <h4 class="text-white font-semibold mb-1"><?= $info['title'] ?></h4>
-                                        <p class="text-white/90 font-medium"><?= $info['content'] ?></p>
-                                        <p class="text-white/60 text-sm"><?= $info['description'] ?></p>
-                                    </div>
-                                </div>
-                            </a>
-                        <?php endforeach; ?>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="lg:col-span-3">
-                <div class="bg-white rounded-3xl p-10 shadow-2xl">
-                    <h3 class="text-3xl font-bold mb-8 text-neutral-900">
-                        Solicite seu Orçamento
-                    </h3>
+                <div class="lg:col-span-3">
+                <?php else: ?>
+                    <div class="lg:col-span-5">
+                    <?php endif; ?>
+                    <div class="bg-white rounded-3xl p-10 shadow-2xl">
+                        <h3 class="text-3xl font-bold mb-8 text-neutral-900">
+                            Solicite seu Orçamento
+                        </h3>
 
-                    <?= $feedback ?>
+                        <?= $feedback ?>
 
-                    <form method="post" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="relative">
-                                <label for="name" class="block text-sm font-medium text-neutral-700 mb-2">Nome Completo</label>
-                                <input type="text" name="name" id="name" required
-                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
-                                    placeholder="Seu nome completo">
+                        <form method="post" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="relative">
+                                    <label for="name" class="block text-sm font-medium text-neutral-700 mb-2">Nome Completo</label>
+                                    <input type="text" name="name" id="name" required
+                                        class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
+                                        placeholder="Seu nome completo">
+                                </div>
+
+                                <div class="relative">
+                                    <label for="email" class="block text-sm font-medium text-neutral-700 mb-2">Email Corporativo</label>
+                                    <input type="email" name="email" id="email" required
+                                        class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
+                                        placeholder="seu@empresa.com">
+                                </div>
                             </div>
 
                             <div class="relative">
-                                <label for="email" class="block text-sm font-medium text-neutral-700 mb-2">Email Corporativo</label>
-                                <input type="email" name="email" id="email" required
-                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
-                                    placeholder="seu@empresa.com">
+                                <label for="subject" class="block text-sm font-medium text-neutral-700 mb-2">Tipo de Projeto</label>
+                                <select name="subject" id="subject" required
+                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50">
+                                    <option value="">Selecione o tipo de projeto</option>
+                                    <option value="Soldagem a Laser">Soldagem a Laser</option>
+                                    <option value="Soldagem MIG">Soldagem MIG</option>
+                                    <option value="Soldagem TIG">Soldagem TIG</option>
+                                    <option value="Eletrodo Revestido">Eletrodo Revestido</option>
+                                    <option value="Brasagem">Brasagem</option>
+                                    <option value="Punções e Matrizes">Punções e Matrizes</option>
+                                    <option value="Consulta Técnica">Consulta Técnica</option>
+                                </select>
                             </div>
-                        </div>
 
-                        <div class="relative">
-                            <label for="subject" class="block text-sm font-medium text-neutral-700 mb-2">Tipo de Projeto</label>
-                            <select name="subject" id="subject" required
-                                class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50">
-                                <option value="">Selecione o tipo de projeto</option>
-                                <option value="Soldagem a Laser">Soldagem a Laser</option>
-                                <option value="Soldagem MIG">Soldagem MIG</option>
-                                <option value="Soldagem TIG">Soldagem TIG</option>
-                                <option value="Eletrodo Revestido">Eletrodo Revestido</option>
-                                <option value="Brasagem">Brasagem</option>
-                                <option value="Punções e Matrizes">Punções e Matrizes</option>
-                                <option value="Consulta Técnica">Consulta Técnica</option>
-                            </select>
-                        </div>
+                            <div class="relative">
+                                <label for="message" class="block text-sm font-medium text-neutral-700 mb-2">Detalhes do Projeto</label>
+                                <textarea name="message" id="message" rows="6" required
+                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
+                                    placeholder="Descreva os detalhes técnicos do seu projeto, materiais envolvidos, especificações e prazo desejado..."></textarea>
+                            </div>
 
-                        <div class="relative">
-                            <label for="message" class="block text-sm font-medium text-neutral-700 mb-2">Detalhes do Projeto</label>
-                            <textarea name="message" id="message" rows="6" required
-                                class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
-                                placeholder="Descreva os detalhes técnicos do seu projeto, materiais envolvidos, especificações e prazo desejado..."></textarea>
-                        </div>
-
-                        <div class="flex justify-end">
-                            <?= $this->insert('components/ui/button', [
-                                'text' => 'Enviar Solicitação',
-                                'type' => 'submit',
-                                'variant' => 'primary',
-                                'size' => 'lg',
-                                'attributes' => [
-                                    'class' => 'w-full md:w-auto px-8'
-                                ]
-                            ]) ?>
-                        </div>
-                    </form>
+                            <div class="flex justify-end">
+                                <?= $this->insert('components/ui/button', [
+                                    'text' => 'Enviar Solicitação',
+                                    'type' => 'submit',
+                                    'variant' => 'primary',
+                                    'size' => 'lg',
+                                    'attributes' => [
+                                        'class' => 'w-full md:w-auto px-8'
+                                    ]
+                                ]) ?>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
                 </div>
-            </div>
         </div>
-    </div>
 </section>

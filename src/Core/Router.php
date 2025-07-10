@@ -68,8 +68,7 @@ class Router
             '{{site_name}}' => $siteConfig['site_name'],
             '{{company_name}}' => $siteConfig['company_name'],
             '{{home_description}}' => $seoConfig['home']['description'],
-            '{{twitter_site}}' => $siteConfig['social']['twitter'] ?: '@' . strtolower($siteConfig['company_name']),
-            '{{twitter_creator}}' => $siteConfig['social']['twitter'] ?: '@' . strtolower($siteConfig['company_name'])
+            '{{site_description}}' => $seoConfig['home']['description']
         ];
 
         // Processar recursivamente os arrays

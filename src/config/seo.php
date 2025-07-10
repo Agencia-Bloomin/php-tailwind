@@ -101,9 +101,6 @@ return [
         'robots' => 'index, follow',
         'viewport' => 'width=device-width, initial-scale=1.0',
         'charset' => 'UTF-8',
-        'theme_color' => '#1f2937',
-        'twitter_card' => 'summary_large_image',
-        'twitter_site' => '{{twitter_site}}',
-        'twitter_creator' => '{{twitter_creator}}'
+        'theme_color' => '#1f2937'
     ]
 ];

@@ -28,7 +28,8 @@ return [
         'sameAs' => [
             '{{social_facebook}}',
             '{{social_instagram}}',
-            '{{social_linkedin}}'
+            '{{social_linkedin}}',
+            '{{social_youtube}}'
         ]
     ],
 

@@ -17,8 +17,8 @@ $slug = $this->e($slug ?? '');
                         </div>
                         <nav class="space-y-1">
                             <?php foreach ($api->getAllPages() as $page): ?>
-                                <a href="./<?= $page->url ?>" 
-                                   class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 <?= $page->url === $slug ? 'bg-primary-light text-primary font-medium' : 'text-gray-600 hover:bg-gray-50' ?>">
+                                <a href="./<?= $page->url ?>"
+                                    class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 <?= $page->url === $slug ? 'bg-primary-light text-primary font-medium' : 'text-gray-600 hover:bg-gray-50' ?>">
                                     <span class="iconify w-5 h-5 <?= $page->url === $slug ? 'text-primary' : 'text-gray-400' ?>" data-icon="mdi:chevron-right"></span>
                                     <span><?= $page->name ?></span>
                                 </a>
@@ -33,24 +33,24 @@ $slug = $this->e($slug ?? '');
                     <?php if (!empty($pageData['gallery']) || !empty($pageData['cover'])): ?>
                         <div class="grid grid-cols-1 gap-6 mb-12">
                             <div class="relative group overflow-hidden rounded-xl">
-                                <img src="<?= $this->e($pageData['cover']) ?>" 
-                                     alt="<?= $this->e($pageData['title']) ?>" 
-                                     class="w-full max-h-[300px] object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-105"
-                                     loading="lazy">
+                                <img src="<?= $this->e($pageData['cover']) ?>"
+                                    alt="<?= $this->e($pageData['title']) ?>"
+                                    class="w-full max-h-[300px] object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-105"
+                                    loading="lazy">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <?php if (!empty($pageData['gallery'])): ?>
-                            <div class="grid grid-cols-2 gap-4">
-                                <?php foreach ($pageData['gallery'] as $image): ?>
-                                    <div class="relative group overflow-hidden rounded-xl">
-                                        <img src="<?= $this->e($image) ?>" 
-                                             alt="<?= $this->e($pageData['title']) ?>" 
-                                             class="w-full h-48 object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-105"
-                                             loading="lazy">
-                                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <?php foreach ($pageData['gallery'] as $image): ?>
+                                        <div class="relative group overflow-hidden rounded-xl">
+                                            <img src="<?= $this->e($image) ?>"
+                                                alt="<?= $this->e($pageData['title']) ?>"
+                                                class="w-full h-48 object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-105"
+                                                loading="lazy">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
@@ -70,7 +70,7 @@ $slug = $this->e($slug ?? '');
                                         <span class="iconify w-4 h-4" data-icon="mdi:facebook"></span>
                                     </a>
                                     <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
-                                        <span class="iconify w-4 h-4" data-icon="mdi:twitter"></span>
+                                        <span class="iconify w-4 h-4" data-icon="mdi:youtube"></span>
                                     </a>
                                     <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
                                         <span class="iconify w-4 h-4" data-icon="mdi:linkedin"></span>
@@ -87,4 +87,4 @@ $slug = $this->e($slug ?? '');
             </div>
         </div>
     </div>
-</section> 
+</section>

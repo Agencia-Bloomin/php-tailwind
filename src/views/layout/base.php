@@ -13,25 +13,18 @@ $seoConfig = require dirname(__DIR__, 2) . '/config/seo.php';
     <meta name="theme-color" content="<?= $seoConfig['global']['theme_color'] ?>">
 
     <title><?= $this->e($title ?? $seoConfig['global']['site_name']) ?></title>
-    <meta name="description" content="<?= $this->e($description ?? $seoConfig['global']['site_description']) ?>">
-    <meta name="keywords" content="<?= $this->e($keywords ?? $seoConfig['global']['site_description']) ?>">
+    <meta name="description" content="<?= $this->e($description ?? $seoConfig['home']['description']) ?>">
+    <meta name="keywords" content="<?= $this->e($keywords ?? $seoConfig['home']['description']) ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?= $siteConfig['site_name'] ?>">
     <meta property="og:url" content="<?= $this->e($canonical ?? $siteConfig['url'] . $_SERVER['REQUEST_URI']) ?>">
     <meta property="og:title" content="<?= $this->e($ogTitle ?? $title ?? $siteConfig['site_name']) ?>">
-    <meta property="og:description" content="<?= $this->e($ogDescription ?? $description ?? '{{home_description}}') ?>">
+    <meta property="og:description" content="<?= $this->e($ogDescription ?? $description ?? $seoConfig['home']['description']) ?>">
     <meta property="og:image" content="<?= $this->e($ogImage ?? $siteConfig['url'] . $seoConfig['home']['og_image']) ?>">
 
-    <!-- Twitter Card -->
-    <meta property="twitter:card" content="<?= $seoConfig['global']['twitter_card'] ?>">
-    <meta property="twitter:site" content="<?= $seoConfig['social']['twitter'] ?: '@' . strtolower($siteConfig['company_name']) ?>">
-    <meta property="twitter:creator" content="<?= $seoConfig['social']['twitter'] ?: '@' . strtolower($siteConfig['company_name']) ?>">
-    <meta property="twitter:url" content="<?= $this->e($canonical ?? $siteConfig['url'] . $_SERVER['REQUEST_URI']) ?>">
-    <meta property="twitter:title" content="<?= $this->e($ogTitle ?? $title ?? $siteConfig['site_name']) ?>">
-    <meta property="twitter:description" content="<?= $this->e($ogDescription ?? $description ?? '{{home_description}}') ?>">
-    <meta property="twitter:image" content="<?= $this->e($ogImage ?? $siteConfig['url'] . $seoConfig['home']['og_image']) ?>">
+
 
     <link rel="canonical" href="<?= $this->e($canonical ?? $siteConfig['url'] . $_SERVER['REQUEST_URI']) ?>">
 
