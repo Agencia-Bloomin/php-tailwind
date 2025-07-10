@@ -54,10 +54,10 @@ foreach ($attributes as $key => $value) {
                 <span class="iconify w-4 h-4 mr-2" data-icon="heroicons:wrench-screwdriver"></span>
                 Soluções de Soldagem Industrial
             </div>
-            <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 drop-shadow-lg">
+            <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-primary2 bg-clip-text text-transparent tracking-tight mb-6 drop-shadow-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
-            <p class="text-xl text-primary4 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+            <p class="text-xl text-primary2 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
             </p>
         </div>

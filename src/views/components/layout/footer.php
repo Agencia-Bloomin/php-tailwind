@@ -31,7 +31,7 @@ if (!empty($siteConfig['social']['youtube'])) {
 }
 ?>
 
-<footer class="bg-gradient-to-br from-primary to-primary-dark text-white py-16 relative overflow-hidden">
+<footer class="bg-gradient-to-br from-primary to-primary2 text-white py-16 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#FFFFFF" fill-opacity="0.1" d="M0,160L48,176C96,192,192,224,288,229.3C384,235,480,213,576,186.7C672,160,768,128,864,133.3C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>

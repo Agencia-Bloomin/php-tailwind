@@ -19,7 +19,7 @@ $slug = $this->e($slug ?? '');
                             <?php foreach ($api->getAllPages() as $page): ?>
                                 <a href="./<?= $page->url ?>"
                                     title="Ir para <?= $page->name ?>"
-                                    class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 <?= $page->url === $slug ? 'bg-primary-light text-primary font-medium' : 'text-gray-600 hover:bg-gray-50' ?>">
+                                    class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 <?= $page->url === $slug ? 'bg-primary4 text-primary font-medium' : 'text-gray-600 hover:bg-gray-50' ?>">
                                     <span class="iconify w-5 h-5 <?= $page->url === $slug ? 'text-primary' : 'text-gray-400' ?>" data-icon="mdi:chevron-right"></span>
                                     <span><?= $page->name ?></span>
                                 </a>
