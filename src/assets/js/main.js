@@ -1,6 +1,5 @@
 import '../css/style.css';
 import "@iconify/iconify";
-import Glide from '@glidejs/glide';
 
 /* Component Scripts */
 import './components/_header.js';
@@ -11,26 +10,9 @@ import './components/_about.js';
 import './components/_detailedServices.js';
 import './components/_privacy-popup.js';
 import './components/_scroll-to-top.js';
+import './components/_banner-carousel.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (document.querySelector('.glide')) {
-        new Glide('.glide', {
-            type: 'carousel',
-            perView: 3,
-            gap: 32,
-            autoplay: 5000,
-            hoverpause: true,
-            breakpoints: {
-                1024: {
-                    perView: 2
-                },
-                640: {
-                    perView: 1
-                }
-            }
-        }).mount();
-    }
-
     const menuButton = document.querySelector('[data-menu-button]');
     const mobileMenu = document.querySelector('[data-mobile-menu]');
     const menuIcons = document.querySelectorAll('[data-menu-icon]');

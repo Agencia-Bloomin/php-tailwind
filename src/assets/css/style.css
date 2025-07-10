@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import '@glidejs/glide/dist/css/glide.core.min.css';
 
 /* Component Styles */
 @import './components/_header.css';

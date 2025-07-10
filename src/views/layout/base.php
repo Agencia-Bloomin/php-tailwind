@@ -6,6 +6,8 @@ $seoConfig = require dirname(__DIR__, 2) . '/config/seo.php';
 <html lang="<?= $seoConfig['global']['language'] ?>">
 
 <head>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <meta charset="<?= $seoConfig['global']['charset'] ?>">
     <meta name="viewport" content="<?= $seoConfig['global']['viewport'] ?>">
     <meta name="robots" content="<?= $seoConfig['global']['robots'] ?>">
@@ -102,6 +104,9 @@ $seoConfig = require dirname(__DIR__, 2) . '/config/seo.php';
     <?= $this->insert('components/ui/scroll-to-top') ?>
 
     <?= $this->insert('components/ui/privacy-popup') ?>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <?php if ($siteConfig['gtm']): ?>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?= $siteConfig['gtm'] ?>"

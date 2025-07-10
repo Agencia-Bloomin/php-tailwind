@@ -19,18 +19,7 @@ $this->layout('layout/base', [
 ?>
 
 <?php $this->start('main_content') ?>
-    <?= $this->insert('components/sections/hero', [
-        'title' => $siteConfig['site_name'],
-        'description' => $seoConfig['home']['description'],
-        'keywords' => $seoConfig['home']['keywords'],
-        'buttons' => [
-            [
-                'text' => 'Saiba mais',
-                'href' => '#',
-                'variant' => 'primary'
-            ]
-        ]
-    ]) ?>
+    <?= $this->insert('components/sections/banner-carousel') ?>
 
 <?= $this->insert('components/sections/about') ?>
 
