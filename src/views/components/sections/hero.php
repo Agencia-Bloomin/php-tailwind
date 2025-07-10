@@ -1,5 +1,5 @@
 <?php
-$image = $image ?? 'src/assets/images/soldagem.jpg';
+$image = $image ?? 'src/assets/images/about.jpg';
 $features = $features ?? [
     [
         'icon' => 'heroicons:sparkles',
@@ -107,8 +107,8 @@ foreach ($attributes as $key => $value) {
                 <div class="relative group">
                     <div class="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
                         <img src="<?= $this->e($image) ?>"
-                            alt="Processo de Soldagem a Laser Industrial"
-                            title="Processo de Soldagem a Laser Industrial"
+                            alt="Banner institucional"
+                            title="Banner institucional"
                             loading="lazy"
                             decoding="async"
                             class="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105" />

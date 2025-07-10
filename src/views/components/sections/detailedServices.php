@@ -13,7 +13,7 @@ $services = [
             'Compatível com múltiplos materiais',
             'Mínima deformação térmica'
         ],
-        'image' => 'src/assets/images/soldagem.jpg',
+        'image' => 'src/assets/images/about.jpg',
     ],
     [
         'title' => 'Soldagem a Laser para Ferramentaria',
@@ -24,7 +24,7 @@ $services = [
             'Reparo de moldes',
             'Precisão dimensional garantida'
         ],
-        'image' => 'src/assets/images/soldagem-laser.jpg',
+        'image' => 'src/assets/images/about.jpg',
     ],
     [
         'title' => 'Fabricação de Peças a Laser',
@@ -35,7 +35,7 @@ $services = [
             'Acabamento superficial superior',
             'Tolerâncias extremamente apertadas'
         ],
-        'image' => 'src/assets/images/pecas-laser.jpg',
+        'image' => 'src/assets/images/about.jpg',
     ],
     [
         'title' => 'Bancadas para Ferramentaria',
@@ -46,7 +46,7 @@ $services = [
             'Suporte para processos industriais',
             'Customização sob medida'
         ],
-        'image' => 'src/assets/images/bancada.webp',
+        'image' => 'src/assets/images/about.jpg',
     ],
     [
         'title' => 'Soldagem MIG/MAG Especializada',
@@ -57,7 +57,7 @@ $services = [
             'Excelente penetração',
             'Versatilidade em espessuras'
         ],
-        'image' => 'src/assets/images/soldagem-mig-mag.jpg',
+        'image' => 'src/assets/images/about.jpg',
     ],
     [
         'title' => 'Serviços Laser Customizados',
@@ -68,7 +68,7 @@ $services = [
             'Soluções sob medida',
             'Consultoria especializada'
         ],
-        'image' => 'src/assets/images/laser-customizado.webp',
+        'image' => 'src/assets/images/about.jpg',
     ]
 ];
 
@@ -109,8 +109,8 @@ $ctaButton = [
                     <div class="relative overflow-hidden">
                         <img
                             src="<?= $this->e($service['image']) ?>"
-                            alt="<?= $this->e($service['title']) ?>"
-                            title="<?= $this->e($service['title']) ?>"
+                            alt="Banner institucional"
+                            title="Banner institucional"
                             class="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                         <div class="absolute top-4 left-4 bg-primary/90 text-white px-3 py-2 rounded-full shadow-lg">
