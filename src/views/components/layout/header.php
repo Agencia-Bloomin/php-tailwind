@@ -1,7 +1,7 @@
 <?php
 $siteConfig = require dirname(__DIR__, 3) . '/config/site.php';
 $logo = $logo ?? [
-    'text' => 'Itecsoldas',
+    'text' => 'Template PHP Bloomin',
     'href' => './'
 ];
 $menuItems = $menuItems ?? [
@@ -96,7 +96,7 @@ foreach ($attributes as $key => $value) {
     <div class="container mx-auto px-4 max-w-screen-xl">
         <div class="flex justify-between items-center py-4">
             <div class="flex items-center space-x-4">
-                <a href="<?= htmlspecialchars($logo['href']) ?>" class="flex items-center space-x-3 group">
+                <a href="<?= htmlspecialchars($logo['href']) ?>" title="Ir para página inicial" class="flex items-center space-x-3 group">
                     <span class="iconify w-10 h-10 text-primary transition-transform duration-300 group-hover:scale-110" data-icon="heroicons:cog-6-tooth"></span>
                     <span class="text-2xl font-bold text-primary tracking-tight">
                         <?= htmlspecialchars($logo['text']) ?>
@@ -108,6 +108,7 @@ foreach ($attributes as $key => $value) {
                 <?php foreach ($menuItems as $item): ?>
                     <div class="relative group">
                         <a href="<?= htmlspecialchars($item['href']) ?>"
+                            title="Ir para <?= htmlspecialchars($item['text']) ?>"
                             class="relative text-neutral-600 hover:text-primary transition-colors duration-200 py-2 group-hover:text-primary flex items-center gap-1">
                             <?= htmlspecialchars($item['text']) ?>
                             <?php if (isset($item['submenu']) && !empty($item['submenu'])): ?>
@@ -123,6 +124,7 @@ foreach ($attributes as $key => $value) {
                             <div class="absolute hidden group-hover:block top-full left-0 min-w-[300px] bg-white shadow-lg rounded-lg border border-neutral-200 mt-2 py-2 z-50 max-h-[350px] overflow-y-auto">
                                 <?php foreach ($item['submenu'] as $subitem): ?>
                                     <a href="<?= htmlspecialchars($subitem['href']) ?>"
+                                        title="Ir para <?= htmlspecialchars($subitem['text']) ?>"
                                         class="block px-4 py-2 text-neutral-600 hover:bg-neutral-50 hover:text-primary transition-colors duration-200">
                                         <?= htmlspecialchars($subitem['text']) ?>
                                     </a>
@@ -165,6 +167,7 @@ foreach ($attributes as $key => $value) {
                             <div class="mobile-dropdown hidden pl-4 space-y-2 mt-2 max-h-[350px] overflow-y-auto">
                                 <?php foreach ($item['submenu'] as $subitem): ?>
                                     <a href="<?= htmlspecialchars($subitem['href']) ?>"
+                                        title="Ir para <?= htmlspecialchars($subitem['text']) ?>"
                                         class="block px-4 text-neutral-600 hover:text-primary hover:bg-neutral-50 transition-colors duration-200 py-2">
                                         <?= htmlspecialchars($subitem['text']) ?>
                                     </a>
@@ -172,6 +175,7 @@ foreach ($attributes as $key => $value) {
                             </div>
                         <?php else: ?>
                             <a href="<?= htmlspecialchars($item['href']) ?>"
+                                title="Ir para <?= htmlspecialchars($item['text']) ?>"
                                 class="block px-4 text-neutral-700 hover:text-primary hover:bg-neutral-50 transition-colors duration-200 py-3">
                                 <?= htmlspecialchars($item['text']) ?>
                             </a>

@@ -1,9 +1,9 @@
 <?php
 $title = 'Inovação em Soldagem: Precisão e Versatilidade';
-$description = 'A Itecsoldas pensa no futuro e inova hoje, fornecendo aos seus clientes tecnologia de ponta no processo de soldagem a laser e muito mais.';
+$description = 'A Template PHP Bloomin pensa no futuro e inova hoje, fornecendo aos seus clientes tecnologia de ponta no processo de soldagem a laser e muito mais.';
 $companyImage = $companyImage ?? [
     'src' => 'src/assets/images/local.webp',
-    'alt' => 'Itecsoldas - Empresa de Soldagem a Laser',
+    'alt' => 'Template PHP Bloomin - Empresa de Soldagem a Laser',
     'caption' => 'Nossa equipe e infraestrutura de alta tecnologia'
 ];
 $attributes = $attributes ?? [];
@@ -30,6 +30,7 @@ foreach ($attributes as $key => $value) {
                     <img
                         src="<?= $this->e($companyImage['src']) ?>"
                         alt="<?= $this->e($companyImage['alt']) ?>"
+                        title="<?= $this->e($companyImage['alt']) ?>"
                         class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
                 </div>

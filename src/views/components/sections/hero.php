@@ -111,6 +111,7 @@ foreach ($attributes as $key => $value) {
                     <div class="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
                         <img src="<?= $this->e($image) ?>"
                             alt="Processo de Soldagem a Laser Industrial"
+                            title="Processo de Soldagem a Laser Industrial"
                             loading="lazy"
                             decoding="async"
                             class="w-full h-auto object-cover transform transition-all duration-500 group-hover:scale-105" />

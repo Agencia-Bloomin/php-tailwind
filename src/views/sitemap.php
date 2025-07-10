@@ -35,6 +35,7 @@ $this->layout('layout/base', [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             <?php foreach ($pages as $page): ?>
                 <a href="./<?= $page->url ?>"
+                    title="Ir para <?= $page->name ?>"
                     class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                     <div class="flex items-start space-x-4">
                         <div class="flex-shrink-0">

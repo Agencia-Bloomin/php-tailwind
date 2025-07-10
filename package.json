@@ -1,7 +1,7 @@
 {
-  "name": "itecsoldas",
+  "name": "template-php-bloomin",
   "version": "1.0.0",
-  "description": "Itecsoldas",
+  "description": "Template PHP Bloomin",
   "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run dev:php\" \"npm run dev:vite\"",

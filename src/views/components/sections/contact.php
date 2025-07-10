@@ -101,7 +101,9 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
 
                         <div class="space-y-6">
                             <?php foreach ($contactInfo as $info): ?>
-                                <a href="<?= $info['link'] ?>" class="block group">
+                                <a href="<?= $info['link'] ?>"
+                                    title="<?= $info['title'] ?>"
+                                    class="block group">
                                     <div class="flex items-start space-x-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all duration-300">
                                         <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:bg-white/30 transition-colors">
                                             <span class="iconify w-6 h-6 text-white" data-icon="<?= $info['icon'] ?>"></span>

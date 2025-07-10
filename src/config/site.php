@@ -1,6 +1,6 @@
 <?php
 return [
-    'url' => 'https://www.itecsoldas.com',
+    'url' => 'https://www.template-php-bloomin.com',
     'site_name' => 'Template PHP Bloomin',
     'company_name' => 'Bloomin',
     'tagline' => 'Template PHP Bloomin',

@@ -52,6 +52,9 @@ if (!empty($siteConfig['social']['youtube'])) {
                     <div class="flex space-x-4">
                         <?php foreach ($socialLinks as $social): ?>
                             <a href="<?= $this->e($social['href']) ?>"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Siga-nos no <?= ucfirst(str_replace('mdi:', '', $social['icon'])) ?>"
                                 class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300 transform hover:scale-110">
                                 <span class="iconify w-6 h-6" data-icon="<?= $this->e($social['icon']) ?>"></span>
                             </a>
@@ -70,6 +73,7 @@ if (!empty($siteConfig['social']['youtube'])) {
                         <?php foreach ($section['links'] as $link): ?>
                             <li>
                                 <a href="<?= $this->e($link['href']) ?>"
+                                    title="Ir para <?= $this->e($link['text']) ?>"
                                     class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
                                     <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                                         data-icon="<?= $this->e($link['icon']) ?>"></span>
@@ -97,6 +101,7 @@ if (!empty($siteConfig['social']['youtube'])) {
                         <?php if (!empty($siteConfig['phone']['number'])): ?>
                             <li>
                                 <a href="tel:<?= $this->e($siteConfig['phone']['number']) ?>"
+                                    title="Ligar para <?= $this->e($siteConfig['phone']['display']) ?>"
                                     class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
                                     <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                                         data-icon="mdi:phone"></span>
@@ -107,6 +112,9 @@ if (!empty($siteConfig['social']['youtube'])) {
                         <?php if (!empty($siteConfig['whatsapp']['number'])): ?>
                             <li>
                                 <a href="https://wa.me/<?= $this->e($siteConfig['whatsapp']['number']) ?>"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="Conversar no WhatsApp com <?= $this->e($siteConfig['whatsapp']['display']) ?>"
                                     class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
                                     <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                                         data-icon="mdi:whatsapp"></span>
@@ -117,6 +125,7 @@ if (!empty($siteConfig['social']['youtube'])) {
                         <?php if (!empty($siteConfig['email']['primary'])): ?>
                             <li>
                                 <a href="mailto:<?= $this->e($siteConfig['email']['primary']) ?>"
+                                    title="Enviar email para <?= $this->e($siteConfig['email']['primary']) ?>"
                                     class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
                                     <span class="iconify w-5 h-5 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                                         data-icon="mdi:email"></span>
@@ -127,6 +136,9 @@ if (!empty($siteConfig['social']['youtube'])) {
                         <?php if (!empty($siteConfig['address']['full'])): ?>
                             <li>
                                 <a href="https://maps.google.com/?q=<?= urlencode($siteConfig['address']['full']) ?>"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title="Ver localização no Google Maps"
                                     class="text-gray-300 hover:text-white transition-all duration-300 flex items-center space-x-3 group">
                                     <span class="iconify w-9 h-9 opacity-50 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                                         data-icon="weui:location-filled"></span>
@@ -147,9 +159,9 @@ if (!empty($siteConfig['social']['youtube'])) {
                 <p>&copy; <?= $year ?> <?= $this->e($companyName) ?>. Todos os direitos reservados.</p>
             </div>
             <div class="flex items-center space-x-4 text-sm text-gray-400">
-                <a href="./politica-de-privacidade" class="hover:text-white transition-colors">Política de Privacidade</a>
+                <a href="./politica-de-privacidade" title="Ler Política de Privacidade" class="hover:text-white transition-colors">Política de Privacidade</a>
                 <div class="w-px h-4 bg-white/20"></div>
-                <a href="./mapa-do-site" class="hover:text-white transition-colors">Mapa do Site</a>
+                <a href="./mapa-do-site" title="Ver Mapa do Site" class="hover:text-white transition-colors">Mapa do Site</a>
             </div>
         </div>
     </div>

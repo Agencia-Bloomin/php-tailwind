@@ -1,7 +1,7 @@
 // About Component JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    const companyImage = document.querySelector('img[alt="Itecsoldas - Empresa de Soldagem a Laser"]');
+    const companyImage = document.querySelector('img[alt="Template PHP Bloomin - Empresa de Soldagem a Laser"]');
 
     if (companyImage) {
         companyImage.addEventListener('error', function() {

@@ -20,8 +20,8 @@ $this->layout('layout/base', [
             <h2 class="text-2xl font-semibold text-gray-800 mb-4">Método não permitido</h2>
             <p class="text-gray-600 mb-8">Desculpe, o método de requisição que você está usando não é permitido para esta página.</p>
             <div class="flex justify-center gap-4">
-                <a href="/" class="btn btn-primary">Voltar para a página inicial</a>
-                <a href="/contato" class="btn btn-secondary">Contato</a>
+                <a href="/" title="Voltar para a página inicial" class="btn btn-primary">Voltar para a página inicial</a>
+                <a href="/contato" title="Ir para página de contato" class="btn btn-secondary">Contato</a>
             </div>
         </div>
     </div>

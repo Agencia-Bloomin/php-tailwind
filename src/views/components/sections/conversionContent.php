@@ -18,6 +18,7 @@ $slug = $this->e($slug ?? '');
                         <nav class="space-y-1">
                             <?php foreach ($api->getAllPages() as $page): ?>
                                 <a href="./<?= $page->url ?>"
+                                    title="Ir para <?= $page->name ?>"
                                     class="flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 <?= $page->url === $slug ? 'bg-primary-light text-primary font-medium' : 'text-gray-600 hover:bg-gray-50' ?>">
                                     <span class="iconify w-5 h-5 <?= $page->url === $slug ? 'text-primary' : 'text-gray-400' ?>" data-icon="mdi:chevron-right"></span>
                                     <span><?= $page->name ?></span>
@@ -35,6 +36,7 @@ $slug = $this->e($slug ?? '');
                             <div class="relative group overflow-hidden rounded-xl">
                                 <img src="<?= $this->e($pageData['cover']) ?>"
                                     alt="<?= $this->e($pageData['title']) ?>"
+                                    title="<?= $this->e($pageData['title']) ?>"
                                     class="w-full max-h-[300px] object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-105"
                                     loading="lazy">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -45,6 +47,7 @@ $slug = $this->e($slug ?? '');
                                         <div class="relative group overflow-hidden rounded-xl">
                                             <img src="<?= $this->e($image) ?>"
                                                 alt="<?= $this->e($pageData['title']) ?>"
+                                                title="<?= $this->e($pageData['title']) ?>"
                                                 class="w-full h-48 object-cover rounded-xl transform transition-transform duration-500 group-hover:scale-105"
                                                 loading="lazy">
                                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -66,13 +69,13 @@ $slug = $this->e($slug ?? '');
                             <div class="flex items-center space-x-4">
                                 <span class="text-sm text-gray-500">Compartilhe:</span>
                                 <div class="flex space-x-2">
-                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
+                                    <a href="#" title="Compartilhar no Facebook" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
                                         <span class="iconify w-4 h-4" data-icon="mdi:facebook"></span>
                                     </a>
-                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
+                                    <a href="#" title="Compartilhar no YouTube" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
                                         <span class="iconify w-4 h-4" data-icon="mdi:youtube"></span>
                                     </a>
-                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
+                                    <a href="#" title="Compartilhar no LinkedIn" class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-all duration-300">
                                         <span class="iconify w-4 h-4" data-icon="mdi:linkedin"></span>
                                     </a>
                                 </div>

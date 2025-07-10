@@ -1,6 +1,6 @@
 {
-    "name": "leorsousa05/itecsoldas",
-    "description": "Itecsoldas",
+    "name": "template-php-bloomin",
+    "description": "Template PHP Bloomin",
     "type": "project",
     "autoload": {
         "psr-4": {

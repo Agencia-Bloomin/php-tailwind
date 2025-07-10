@@ -110,6 +110,7 @@ $ctaButton = [
                         <img
                             src="<?= $this->e($service['image']) ?>"
                             alt="<?= $this->e($service['title']) ?>"
+                            title="<?= $this->e($service['title']) ?>"
                             class="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-105">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                         <div class="absolute top-4 left-4 bg-primary/90 text-white px-3 py-2 rounded-full shadow-lg">
