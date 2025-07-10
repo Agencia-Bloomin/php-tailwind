@@ -14,6 +14,7 @@ class Router
     private Engine $templates;
     private ApiClient $apiClient;
     private SchemaHelper $schemaHelper;
+    private array $replacements = [];
 
     public function __construct()
     {
@@ -21,7 +22,28 @@ class Router
         $this->apiClient = new ApiClient();
         $this->schemaHelper = new SchemaHelper();
 
-        $this->templates->addData(['year' => date('Y')]);
+        // 1. Carrega as configurações brutas
+        $siteConfig = require dirname(__DIR__) . '/config/site.php';
+        $seoConfig = require dirname(__DIR__) . '/config/seo.php';
+
+        // 2. Define o mapa de substituições para as variáveis globais
+        $this->replacements = [
+            '{{site_name}}' => $siteConfig['site_name'],
+            '{{company_name}}' => $siteConfig['company_name'],
+            '{{home_description}}' => $seoConfig['home']['description'],
+            '{{site_description}}' => $seoConfig['home']['description']
+        ];
+
+        // 3. Processa o array de SEO, substituindo os placeholders
+        // Usamos json_encode/decode para garantir que a substituição ocorra em todos os níveis do array.
+        $processedSeoConfig = json_decode(str_replace(array_keys($this->replacements), array_values($this->replacements), json_encode($seoConfig)), true);
+
+        // 4. Disponibiliza as configurações PROCESSADAS para TODOS os templates (incluindo o layout)
+        $this->templates->addData([
+            'siteConfig' => $siteConfig, // siteConfig não tem placeholders que dependem de outros arquivos
+            'seoConfig'  => $processedSeoConfig, // seoConfig agora está totalmente processado
+            'year'       => date('Y')
+        ]);
 
         $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
         $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
@@ -35,7 +57,7 @@ class Router
         $this->dispatcher = simpleDispatcher(function (RouteCollector $r) use ($baseUrl) {
             $r->addRoute('GET', $baseUrl . '/', 'home');
             $r->addRoute('GET', $baseUrl . '/servicos', 'services');
-            $r->addRoute('GET', $baseUrl . '/contato', 'contact');
+            $r->addRoute(['GET', 'POST'], $baseUrl . '/contato', 'contact'); // Permite GET e POST para o formulário
             $r->addRoute('GET', $baseUrl . '/sobre', 'about');
             $r->addRoute('GET', $baseUrl . '/faq', 'faq');
             $r->addRoute('GET', $baseUrl . '/mapa-site', 'sitemap');
@@ -52,33 +74,7 @@ class Router
             $data['schema'] = $this->schemaHelper->generateSchema($view);
         }
 
-        // Processar variáveis no SEO config
-        $data = $this->processSeoVariables($data);
-
         return $this->templates->render($view, $data);
-    }
-
-    private function processSeoVariables(array $data): array
-    {
-        $siteConfig = require dirname(__DIR__) . '/config/site.php';
-        $seoConfig = require dirname(__DIR__) . '/config/seo.php';
-
-        // Substituir variáveis em strings
-        $replacements = [
-            '{{site_name}}' => $siteConfig['site_name'],
-            '{{company_name}}' => $siteConfig['company_name'],
-            '{{home_description}}' => $seoConfig['home']['description'],
-            '{{site_description}}' => $seoConfig['home']['description']
-        ];
-
-        // Processar recursivamente os arrays
-        array_walk_recursive($data, function (&$value) use ($replacements) {
-            if (is_string($value)) {
-                $value = str_replace(array_keys($replacements), array_values($replacements), $value);
-            }
-        });
-
-        return $data;
     }
 
     private function generateSitemap(): string
@@ -88,42 +84,12 @@ class Router
 
         // Rotas estáticas
         $staticRoutes = [
-            '/' => [
-                'url' => $baseUrl . '/',
-                'lastmod' => date('c'),
-                'changefreq' => 'daily',
-                'priority' => '1.0'
-            ],
-            '/servicos' => [
-                'url' => $baseUrl . '/servicos',
-                'lastmod' => date('c'),
-                'changefreq' => 'weekly',
-                'priority' => '0.9'
-            ],
-            '/contato' => [
-                'url' => $baseUrl . '/contato',
-                'lastmod' => date('c'),
-                'changefreq' => 'monthly',
-                'priority' => '0.7'
-            ],
-            '/sobre' => [
-                'url' => $baseUrl . '/sobre',
-                'lastmod' => date('c'),
-                'changefreq' => 'monthly',
-                'priority' => '0.8'
-            ],
-            '/faq' => [
-                'url' => $baseUrl . '/faq',
-                'lastmod' => date('c'),
-                'changefreq' => 'monthly',
-                'priority' => '0.6'
-            ],
-            '/mapa-site' => [
-                'url' => $baseUrl . '/mapa-site',
-                'lastmod' => date('c'),
-                'changefreq' => 'monthly',
-                'priority' => '0.5'
-            ]
+            '/' => ['url' => $baseUrl . '/', 'lastmod' => date('c'), 'changefreq' => 'daily', 'priority' => '1.0'],
+            '/servicos' => ['url' => $baseUrl . '/servicos', 'lastmod' => date('c'), 'changefreq' => 'weekly', 'priority' => '0.9'],
+            '/contato' => ['url' => $baseUrl . '/contato', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.7'],
+            '/sobre' => ['url' => $baseUrl . '/sobre', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.8'],
+            '/faq' => ['url' => $baseUrl . '/faq', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.6'],
+            '/mapa-site' => ['url' => $baseUrl . '/mapa-site', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.5']
         ];
 
         // Páginas dinâmicas da API
@@ -144,10 +110,8 @@ class Router
             }
         }
 
-        // Combinar todas as rotas
         $allRoutes = array_merge($staticRoutes, $dynamicRoutes);
 
-        // Gerar XML
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
@@ -161,7 +125,6 @@ class Router
         }
 
         $xml .= '</urlset>';
-
         return $xml;
     }
 
@@ -173,7 +136,8 @@ class Router
 
         $content = "User-agent: *\n";
         $content .= "Allow: /\n";
-        $content .= "Disallow: /admin/\n";  // Exemplo de disallow, ajuste conforme necessário
+        $content .= "Disallow: /vendor/\n";
+        $content .= "Disallow: /src/\n";
         $content .= "Sitemap: " . $sitemapUrl . "\n";
 
         return $content;

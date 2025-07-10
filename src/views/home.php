@@ -1,7 +1,4 @@
 <?php
-$siteConfig = require dirname(__DIR__) . '/config/site.php';
-$seoConfig = require dirname(__DIR__) . '/config/seo.php';
-
 // Gerar schema específico para a home
 $schemaHelper = new \App\Core\SchemaHelper();
 $localBusinessSchema = $schemaHelper->generateLocalBusinessSchema();

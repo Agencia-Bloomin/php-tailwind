@@ -1,22 +1,18 @@
-<?php
-$siteConfig = require dirname(__DIR__, 2) . '/config/site.php';
-$seoConfig = require dirname(__DIR__, 2) . '/config/seo.php';
-?>
 <!DOCTYPE html>
-<html lang="<?= $seoConfig['global']['language'] ?>">
+<html lang="pt-BR">
 
 <head>
     <!-- Google Fonts: Inter e Roboto Mono -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <meta charset="<?= $seoConfig['global']['charset'] ?>">
-    <meta name="viewport" content="<?= $seoConfig['global']['viewport'] ?>">
-    <meta name="robots" content="<?= $seoConfig['global']['robots'] ?>">
-    <meta name="author" content="<?= $seoConfig['global']['author'] ?>">
-    <meta name="theme-color" content="<?= $seoConfig['global']['theme_color'] ?>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="<?= $siteConfig['site_name'] ?>">
+    <meta name="theme-color" content="#1f2937">
 
-    <title><?= $this->e($title ?? $seoConfig['global']['site_name']) ?></title>
+    <title><?= $this->e($title ?? $siteConfig['site_name']) ?></title>
     <meta name="description" content="<?= $this->e($description ?? $seoConfig['home']['description']) ?>">
     <meta name="keywords" content="<?= $this->e($keywords ?? $seoConfig['home']['description']) ?>">
 

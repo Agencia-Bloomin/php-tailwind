@@ -1,7 +1,4 @@
 <?php
-$siteConfig = require dirname(__DIR__) . '/config/site.php';
-$seoConfig = require dirname(__DIR__) . '/config/seo.php';
-
 $this->layout('layout/base', [
     'title' => $seoConfig['services']['title'],
     'description' => $seoConfig['services']['description'],
