@@ -85,11 +85,11 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
             <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium mb-6 border border-white/20">
                 Contato Especializado
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-white mb-8">
-                Transforme Sua Ideia em Realidade
+            <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 drop-shadow-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
-            <p class="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
-                Converse com nossa equipe de especialistas em soldagem a laser. Estamos prontos para converter desafios técnicos em soluções industriais de alta precisão.
+            <p class="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
             </p>
         </div>
 

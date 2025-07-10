@@ -95,11 +95,11 @@ $ctaButton = [
             </div>
 
             <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 drop-shadow-lg">
-                <?= $sectionTitle ?>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
 
             <p class="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
-                <?= $sectionDescription ?>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
             </p>
         </div>
 

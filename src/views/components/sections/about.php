@@ -1,10 +1,8 @@
 <?php
-$title = 'Inovação em Soldagem: Precisão e Versatilidade';
-$description = 'A Template PHP Bloomin pensa no futuro e inova hoje, fornecendo aos seus clientes tecnologia de ponta no processo de soldagem a laser e muito mais.';
 $companyImage = $companyImage ?? [
     'src' => 'src/assets/images/local.webp',
     'alt' => 'Template PHP Bloomin - Empresa de Soldagem a Laser',
-    'caption' => 'Nossa equipe e infraestrutura de alta tecnologia'
+    'caption' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 ];
 $attributes = $attributes ?? [];
 $customClass = $customClass ?? '';
@@ -47,15 +45,15 @@ foreach ($attributes as $key => $value) {
                 <div class="space-y-6">
                     <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm font-medium border border-white/20">
                         <span class="iconify w-4 h-4 mr-2 text-white" data-icon="heroicons:bolt"></span>
-                        Engenharia de Precisão
+                        Lorem Ipsum Dolor
                     </div>
 
                     <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight drop-shadow-lg">
-                        Precisão e versatilidade em soldagem de alta performance
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
                     </h2>
 
                     <p class="text-lg text-neutral-200 leading-relaxed drop-shadow-sm">
-                        Na Irenotecsol, unimos inovação, precisão milimétrica e tecnologia de ponta para atender as demandas mais exigentes da indústria. Realizamos soldagem a laser com máxima eficiência, além de oferecer processos complementares para diversos tipos de materiais e aplicações.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
                     </p>
                 </div>
 

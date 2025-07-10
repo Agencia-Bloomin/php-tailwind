@@ -32,9 +32,6 @@ $services = $services ?? [
     ]
 ];
 
-$sectionTitle = $sectionTitle ?? 'Nossos Serviços Especializados';
-$sectionDescription = $sectionDescription ?? 'A Irenotecsol alia tecnologia de ponta com excelência operacional, oferecendo o que há de mais avançado em soldagem a laser, além de dominar processos tradicionais essenciais para a indústria.';
-
 $attributes = $attributes ?? [];
 $customClass = $customClass ?? '';
 
@@ -57,11 +54,11 @@ foreach ($attributes as $key => $value) {
                 <span class="iconify w-4 h-4 mr-2" data-icon="heroicons:wrench-screwdriver"></span>
                 Soluções de Soldagem Industrial
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold mb-8 text-neutral-900 tracking-tight">
-                <?= $sectionTitle ?>
+            <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 drop-shadow-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
-            <p class="text-xl text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-                <?= $sectionDescription ?>
+            <p class="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
             </p>
         </div>
 

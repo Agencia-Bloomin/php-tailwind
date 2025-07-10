@@ -27,11 +27,12 @@ $faq_items = [
                     <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                         Perguntas Frequentes
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
-                        Dúvidas sobre Soldagem a Laser
+                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 drop-shadow-lg">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
                     </h2>
-                    <p class="text-neutral-600 text-xl mb-2">Respondemos às principais perguntas sobre nossa tecnologia de soldagem.</p>
-                    <p class="text-neutral-600 text-xl mb-10">Com ampla experiência no setor, transformamos dúvidas técnicas em soluções de alta precisão.</p>
+                    <p class="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
+                    </p>
                     <div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm">
                         <h3 class="text-2xl font-bold text-neutral-900 mb-6">
                             Precisa de Ajuda Especializada?

@@ -50,15 +50,15 @@ foreach ($attributes as $key => $value) {
 
                     <div class="space-y-4">
                         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight drop-shadow-md">
-                            <?= $title ?>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
                         </h1>
                         <h2 class="text-1xl md:text-2xl font-semibold text-primary drop-shadow-sm">
-                            <?= $subtitle ?>
+                            Pellentesque euismod, urna eu tincidunt consectetur
                         </h2>
                     </div>
 
                     <p class="text-md text-neutral-700 leading-relaxed max-w-2xl drop-shadow-sm bg-white/30 backdrop-blur-sm p-4 rounded-lg">
-                        <?= $description ?>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
                     </p>
 
                     <ul class="space-y-4">
