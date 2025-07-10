@@ -57,7 +57,7 @@ foreach ($attributes as $key => $value) {
             <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 drop-shadow-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
-            <p class="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+            <p class="text-xl text-primary4 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
             </p>
         </div>
@@ -74,10 +74,10 @@ foreach ($attributes as $key => $value) {
                             <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center">
                                 <span class="iconify w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" data-icon="<?= $service['icon'] ?>"></span>
                             </div>
-                            <h3 class="text-xl font-bold text-neutral-900 leading-tight"><?= $service['title'] ?></h3>
+                            <h3 class="text-xl font-bold text-primary3 leading-tight"><?= $service['title'] ?></h3>
                         </div>
 
-                        <p class="text-neutral-600 mb-8 leading-relaxed flex-grow">
+                        <p class="text-primary2 mb-8 leading-relaxed flex-grow">
                             <?= $service['description'] ?>
                         </p>
 
@@ -112,9 +112,9 @@ foreach ($attributes as $key => $value) {
             <div class="bg-white/80 backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/50 max-w-3xl mx-auto">
                 <div class="flex items-center justify-center space-x-3 mb-6">
                     <span class="iconify w-8 h-8 text-primary" data-icon="heroicons:lightbulb"></span>
-                    <h3 class="text-2xl font-bold text-neutral-900">Soluções Sob Medida para sua Indústria</h3>
+                    <h3 class="text-2xl font-bold text-primary3">Soluções Sob Medida para sua Indústria</h3>
                 </div>
-                <p class="text-neutral-700 mb-8 text-lg">Nossa equipe técnica está preparada para desenvolver projetos personalizados com foco em desempenho, durabilidade e agilidade na execução.</p>
+                <p class="text-primary2 mb-8 text-lg">Nossa equipe técnica está preparada para desenvolver projetos personalizados com foco em desempenho, durabilidade e agilidade na execução.</p>
                 <?= $this->insert('components/ui/button', [
                     'text' => 'Fale com Nossos Especialistas',
                     'href' => './contato',

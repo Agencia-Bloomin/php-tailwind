@@ -46,7 +46,7 @@ foreach ($attributes as $key => $value) {
                     </div>
 
                     <div class="space-y-4">
-                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight drop-shadow-md">
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary3 tracking-tight drop-shadow-md">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit
                         </h1>
                         <h2 class="text-1xl md:text-2xl font-semibold text-primary drop-shadow-sm">
@@ -54,13 +54,13 @@ foreach ($attributes as $key => $value) {
                         </h2>
                     </div>
 
-                    <p class="text-md text-neutral-700 leading-relaxed max-w-2xl drop-shadow-sm bg-white/30 backdrop-blur-sm p-4 rounded-lg">
+                    <p class="text-md text-primary2 leading-relaxed max-w-2xl drop-shadow-sm bg-white/30 backdrop-blur-sm p-4 rounded-lg">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
                     </p>
 
                     <ul class="space-y-4">
                         <?php foreach ($features as $feature): ?>
-                            <li class="flex items-center space-x-3 text-neutral-700 group bg-white/20 backdrop-blur-sm p-3 rounded-lg">
+                            <li class="flex items-center space-x-3 text-primary2 group bg-white/20 backdrop-blur-sm p-3 rounded-lg">
                                 <span class="iconify w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110" data-icon="<?= $feature['icon'] ?>"></span>
                                 <span class="text-md drop-shadow-sm font-medium"><?= $feature['text'] ?></span>
                             </li>
@@ -86,19 +86,19 @@ foreach ($attributes as $key => $value) {
                             <div class="text-3xl font-bold text-primary drop-shadow-sm">
                                 <span id="counter-precision">0.0</span>mm
                             </div>
-                            <div class="text-sm text-neutral-600">Precisão</div>
+                            <div class="text-sm text-primary2">Precisão</div>
                         </div>
                         <div class="text-center">
                             <div class="text-3xl font-bold text-primary drop-shadow-sm">
                                 +<span id="counter-projects">0</span>
                             </div>
-                            <div class="text-sm text-neutral-600">Projetos</div>
+                            <div class="text-sm text-primary2">Projetos</div>
                         </div>
                         <div class="text-center">
                             <div class="text-3xl font-bold text-primary drop-shadow-sm">
                                 <span id="counter-sectors">0</span>+
                             </div>
-                            <div class="text-sm text-neutral-600">Setores</div>
+                            <div class="text-sm text-primary2">Setores</div>
                         </div>
                     </div>
 
@@ -120,7 +120,7 @@ foreach ($attributes as $key => $value) {
                     <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg z-20">
                         <div class="flex items-center space-x-2">
                             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                            <span class="text-sm font-medium text-neutral-800">Em Operação</span>
+                            <span class="text-sm font-medium text-primary3">Em Operação</span>
                         </div>
                     </div>
                 </div>

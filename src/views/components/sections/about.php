@@ -52,7 +52,7 @@ foreach ($attributes as $key => $value) {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit
                     </h2>
 
-                    <p class="text-lg text-neutral-200 leading-relaxed drop-shadow-sm">
+                    <p class="text-lg text-primary4 leading-relaxed drop-shadow-sm">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
                     </p>
                 </div>
@@ -63,7 +63,7 @@ foreach ($attributes as $key => $value) {
                             <span class="iconify w-6 h-6 text-white" data-icon="heroicons:cpu-chip"></span>
                             <div>
                                 <h3 class="text-white font-semibold">Tecnologia Laser</h3>
-                                <p class="text-neutral-300 text-sm">Precisão milimétrica</p>
+                                <p class="text-primary2 text-sm">Precisão milimétrica</p>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ foreach ($attributes as $key => $value) {
                             <span class="iconify w-6 h-6 text-white" data-icon="heroicons:shield-check"></span>
                             <div>
                                 <h3 class="text-white font-semibold">Qualidade Garantida</h3>
-                                <p class="text-neutral-300 text-sm">ISO certificado</p>
+                                <p class="text-primary2 text-sm">ISO certificado</p>
                             </div>
                         </div>
                     </div>

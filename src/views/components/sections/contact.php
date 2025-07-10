@@ -88,7 +88,7 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
             <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 drop-shadow-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
-            <p class="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+            <p class="text-xl text-primary4 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
             </p>
         </div>
@@ -125,7 +125,7 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                     <div class="lg:col-span-5">
                     <?php endif; ?>
                     <div class="bg-white rounded-3xl p-10 shadow-2xl">
-                        <h3 class="text-3xl font-bold mb-8 text-neutral-900">
+                        <h3 class="text-3xl font-bold mb-8 text-primary3">
                             Solicite seu Orçamento
                         </h3>
 
@@ -134,14 +134,14 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                         <form method="post" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="relative">
-                                    <label for="name" class="block text-sm font-medium text-neutral-700 mb-2">Nome Completo</label>
+                                    <label for="name" class="block text-sm font-medium text-primary2 mb-2">Nome Completo</label>
                                     <input type="text" name="name" id="name" required
                                         class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
                                         placeholder="Seu nome completo">
                                 </div>
 
                                 <div class="relative">
-                                    <label for="email" class="block text-sm font-medium text-neutral-700 mb-2">Email Corporativo</label>
+                                    <label for="email" class="block text-sm font-medium text-primary2 mb-2">Email Corporativo</label>
                                     <input type="email" name="email" id="email" required
                                         class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
                                         placeholder="seu@empresa.com">
@@ -149,7 +149,7 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                             </div>
 
                             <div class="relative">
-                                <label for="subject" class="block text-sm font-medium text-neutral-700 mb-2">Tipo de Projeto</label>
+                                <label for="subject" class="block text-sm font-medium text-primary2 mb-2">Tipo de Projeto</label>
                                 <select name="subject" id="subject" required
                                     class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50">
                                     <option value="">Selecione o tipo de projeto</option>
@@ -164,7 +164,7 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                             </div>
 
                             <div class="relative">
-                                <label for="message" class="block text-sm font-medium text-neutral-700 mb-2">Detalhes do Projeto</label>
+                                <label for="message" class="block text-sm font-medium text-primary2 mb-2">Detalhes do Projeto</label>
                                 <textarea name="message" id="message" rows="6" required
                                     class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
                                     placeholder="Descreva os detalhes técnicos do seu projeto, materiais envolvidos, especificações e prazo desejado..."></textarea>

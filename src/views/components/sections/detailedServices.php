@@ -98,7 +98,7 @@ $ctaButton = [
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
 
-            <p class="text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+            <p class="text-xl text-primary4 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
             </p>
         </div>
@@ -123,13 +123,13 @@ $ctaButton = [
                             <?= $this->e($service['title']) ?>
                         </h3>
 
-                        <p class="text-neutral-200 mb-6 leading-relaxed">
+                        <p class="text-primary4 mb-6 leading-relaxed">
                             <?= $this->e($service['description']) ?>
                         </p>
 
                         <ul class="space-y-3 mb-6">
                             <?php foreach ($service['features'] as $feature): ?>
-                                <li class="flex items-center space-x-3 text-neutral-300">
+                                <li class="flex items-center space-x-3 text-primary4">
                                     <span class="iconify w-5 h-5 text-white" data-icon="heroicons:check-circle"></span>
                                     <span><?= $this->e($feature) ?></span>
                                 </li>
@@ -146,7 +146,7 @@ $ctaButton = [
                     <span class="iconify w-8 h-8 text-primary" data-icon="heroicons:lightbulb"></span>
                     <h3 class="text-2xl font-bold text-white">Precisa de uma Solução Personalizada?</h3>
                 </div>
-                <p class="text-neutral-200 mb-8 text-lg">Nossa equipe técnica está pronta para desenvolver soluções específicas para seu projeto industrial.</p>
+                <p class="text-primary4 mb-8 text-lg">Nossa equipe técnica está pronta para desenvolver soluções específicas para seu projeto industrial.</p>
             </div>
 
             <?= $this->insert('components/ui/button', [
