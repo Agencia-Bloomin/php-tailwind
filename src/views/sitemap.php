@@ -8,7 +8,7 @@ $pages = $api->getAllPages();
 $siteConfig = require dirname(__DIR__) . '/config/site.php';
 $seoConfig = require dirname(__DIR__) . '/config/seo.php';
 
-$this->layout('pages/base', [
+$this->layout('layout/base', [
     'title' => $seoConfig['sitemap']['title'],
     'description' => $seoConfig['sitemap']['description'],
     'keywords' => $seoConfig['sitemap']['keywords'],

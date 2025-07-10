@@ -2,7 +2,7 @@
 $siteConfig = require dirname(__DIR__) . '/config/site.php';
 $seoConfig = require dirname(__DIR__) . '/config/seo.php';
 
-$this->layout('pages/base', [
+$this->layout('layout/base', [
     'title' => $seoConfig['about']['title'],
     'description' => $seoConfig['about']['description'],
     'keywords' => $seoConfig['about']['keywords'],

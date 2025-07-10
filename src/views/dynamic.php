@@ -15,7 +15,7 @@ if (!$pageData || empty($pageData['content'])) {
 
 $seoConfig = require dirname(__DIR__) . '/config/seo.php';
 
-$this->layout('pages/base', [
+$this->layout('layout/base', [
     'title' => $pageData['title'] . ' - ' . $seoConfig['global']['site_name'],
     'description' => $pageData['description'],
     'keywords' => $pageData['keywords'] ?? $seoConfig['global']['site_description'],

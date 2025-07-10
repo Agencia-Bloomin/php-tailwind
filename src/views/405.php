@@ -1,7 +1,7 @@
 <?php
 $seoConfig = require dirname(__DIR__) . '/config/seo.php';
 
-$this->layout('pages/base', [
+$this->layout('layout/base', [
     'title' => $seoConfig['405']['title'],
     'description' => $seoConfig['405']['description'],
     'keywords' => $seoConfig['405']['keywords'],

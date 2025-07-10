@@ -6,7 +6,7 @@ $seoConfig = require dirname(__DIR__) . '/config/seo.php';
 $schemaHelper = new \App\Core\SchemaHelper();
 $localBusinessSchema = $schemaHelper->generateLocalBusinessSchema();
 
-$this->layout('pages/base', [
+$this->layout('layout/base', [
     'title' => $seoConfig['home']['title'],
     'description' => $seoConfig['home']['description'],
     'keywords' => $seoConfig['home']['keywords'],
