@@ -12,12 +12,12 @@ $menuItems = $menuItems ?? [
     ],
     [
         'text' => 'Sobre Nós',
-        'href' => '#',
+        'href' => 'sobre',
         'active' => $_SERVER['REQUEST_URI'] === '#'
     ],
     [
         'text' => 'Serviços',
-        'href' => '#',
+        'href' => 'servicos',
         'active' => $_SERVER['REQUEST_URI'] === './servicos',
         'submenu' => [
             [
@@ -67,7 +67,7 @@ $menuItems = $menuItems ?? [
         ]
     ],
     [
-        'text' => 'Equipamentos ',
+        'text' => 'Blog ',
         'href' => '#',
         'active' => $_SERVER['REQUEST_URI'] === '#'
     ],
