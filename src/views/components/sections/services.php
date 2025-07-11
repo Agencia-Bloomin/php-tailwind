@@ -66,17 +66,17 @@ foreach ($attributes as $key => $value) {
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mb-20 items-stretch">
             <?php foreach ($services as $index => $service): ?>
-                <div class="group relative" data-animate="fade-in-up">
-                    <div class="bg-white rounded-3xl shadow-xl border border-primary/10 p-0 flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 overflow-hidden">
+                <div class="group relative h-full" data-animate="fade-in-up">
+                    <div class="bg-white rounded-3xl shadow-xl border border-primary/10 p-0 flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 overflow-hidden h-full">
                         <div class="w-full h-44 bg-gray-100 overflow-hidden relative">
                             <img src="<?= $this->e($service['image']) ?>" alt="<?= $this->e($service['title']) ?>" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
                             <span class="absolute top-3 left-3 bg-white/80 rounded-full p-2 shadow text-primary">
                                 <span class="iconify text-2xl" data-icon="<?= $service['icon'] ?>"></span>
                             </span>
                         </div>
-                        <div class="p-8 flex flex-col flex-1 w-full">
+                        <div class="p-8 flex flex-col flex-1 w-full h-full">
                             <h3 class="text-2xl font-bold text-primary3 mb-3">
                                 <?= $service['title'] ?>
                             </h3>

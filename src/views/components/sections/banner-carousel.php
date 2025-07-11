@@ -37,9 +37,7 @@ $banners = [
 <section class="banner-carousel relative w-full">
     <div class="swiper banner-swiper">
         <div class="swiper-wrapper">
-            <?php foreach (
-                $banners as $index => $banner
-            ): ?>
+            <?php foreach ($banners as $i => $banner): ?>
                 <div class="swiper-slide">
                     <div class="banner-slide">
                         <!-- Imagem Desktop -->
@@ -53,7 +51,11 @@ $banners = [
                             class="banner-image block md:hidden">
 
                         <div class="banner-content">
-                            <h2 class="banner-title text-white"><?= $banner['title'] ?></h2>
+                            <?php if ($i === 0): ?>
+                                <h1 class="banner-title text-white"><?= $banner['title'] ?></h1>
+                            <?php else: ?>
+                                <h2 class="banner-title text-white"><?= $banner['title'] ?></h2>
+                            <?php endif; ?>
                             <p class="banner-description text-white"><?= $banner['description'] ?></p>
                             <a href="<?= $banner['button_link'] ?>" class="banner-button">
                                 <?= $banner['button_text'] ?>

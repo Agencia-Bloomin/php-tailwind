@@ -19,13 +19,11 @@ $this->layout('layout/base', [
 
 <?= $this->insert('components/sections/banner-carousel') ?>
 
-<?= $this->insert('components/sections/about') ?>
-
 <?= $this->insert('components/sections/services') ?>
 
-<?= $this->insert('components/sections/faq') ?>
+<?= $this->insert('components/sections/about') ?>
 
-<?= $this->insert('components/sections/conversionContent') ?>
+<?= $this->insert('components/sections/faq') ?>
 
 <?= $this->insert('components/sections/contact') ?>
 
