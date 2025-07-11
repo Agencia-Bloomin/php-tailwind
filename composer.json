@@ -1,5 +1,5 @@
 {
-    "name": "template-php-bloomin",
+    "name": "template/php-bloomin",
     "description": "Template PHP Bloomin",
     "type": "project",
     "autoload": {

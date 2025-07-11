@@ -2,7 +2,7 @@
 $companyImage = $companyImage ?? [
     'src' => 'src/assets/images/about.jpg',
     'alt' => 'Banner institucional',
-    'caption' => 'Nossa história é marcada pela inovação e excelência.'
+    'caption' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 ];
 $attributes = $attributes ?? [];
 $customClass = $customClass ?? '';
@@ -17,22 +17,24 @@ $tabs = [
     'missao' => [
         'label' => 'Missão',
         'icon' => 'heroicons:flag',
-        'content' => 'Nossa missão é entregar soluções industriais inovadoras, com qualidade, agilidade e foco total na satisfação do cliente.'
+        'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
     ],
     'visao' => [
         'label' => 'Visão',
         'icon' => 'heroicons:eye',
-        'content' => 'Ser referência nacional em soldagem e corte a laser, reconhecida pela excelência técnica e compromisso com resultados.'
+        'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
     ],
     'valores' => [
         'label' => 'Valores',
         'icon' => 'heroicons:star',
-        'content' => 'Ética, inovação, respeito, compromisso com o cliente e melhoria contínua em todos os processos.'
+        'content' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
     ]
 ];
 ?>
 
-<section class="relative py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 overflow-hidden" <?= $attrs ?>>
+<section class="relative py-24 bg-gradient-to-br from-primary to-primary2 overflow-hidden" <?= $attrs ?>>
     <div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="relative group">
@@ -57,8 +59,8 @@ $tabs = [
                     <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 drop-shadow-lg">
                         Sobre a Bloomin
                     </h2>
-                    <p class="text-lg text-primary4 leading-relaxed drop-shadow-sm max-w-2xl">
-                        Somos especialistas em soldagem e corte a laser, atuando com tecnologia de ponta e equipe altamente qualificada para atender as demandas mais exigentes do mercado industrial.
+                    <p class="text-lg text-white/80 leading-relaxed drop-shadow-sm max-w-2xl">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
                     </p>
                 </div>
 
@@ -66,7 +68,7 @@ $tabs = [
                 <div>
                     <div class="flex space-x-2 mb-6" id="about-tabs">
                         <?php foreach ($tabs as $key => $tab): ?>
-                            <button type="button" class="about-tab px-6 py-3 rounded-full font-semibold flex items-center gap-2 bg-white/10 text-white hover:bg-primary/80 transition-all focus:outline-none" data-tab="<?= $key ?>">
+                            <button type="button" class="about-tab px-6 py-3 rounded-full font-semibold flex items-center gap-2 bg-white/10 text-white hover:bg-primary/80 active:bg-primary active:text-white focus:bg-primary focus:text-white transition-all focus:outline-none" data-tab="<?= $key ?>">
                                 <span class="iconify w-5 h-5" data-icon="<?= $tab['icon'] ?>"></span>
                                 <?= $tab['label'] ?>
                             </button>
@@ -79,8 +81,8 @@ $tabs = [
 
                 <div class="pt-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                     <?= $this->insert('components/ui/button', [
-                        'text' => 'Conheça Nossos Processos',
-                        'href' => './servicos',
+                        'text' => 'Conheça nossa Empresa',
+                        'href' => './sobre',
                         'variant' => 'primary',
                         'size' => 'lg',
                         'attributes' => [
@@ -88,7 +90,7 @@ $tabs = [
                         ]
                     ]) ?>
                     <?= $this->insert('components/ui/button', [
-                        'text' => 'Fale com Ireno e Douglas',
+                        'text' => 'Entre em Contato',
                         'href' => './contato',
                         'variant' => 'outline',
                         'size' => 'lg',
