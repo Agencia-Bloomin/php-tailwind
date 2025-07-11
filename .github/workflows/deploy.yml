@@ -1,0 +1,35 @@
+name: Deploy Alterações via FTP
+
+on:
+  push:
+    branches:
+      - developer
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          composer install --no-dev --optimize-autoloader
+          npm ci
+          npm run build
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST_BLOOMIN_PROJETOS }}
+          username: ${{ secrets.FTP_USER_BLOOMIN_PROJETOS }}
+          password: ${{ secrets.FTP_PASSWORD_BLOOMIN_PROJETOS }}
+          local-dir: ./
+          server-dir: /php-tailwind/
+          exclude: |
+            node_modules/**
+            .git/**
+            .github/**
+            .env
+            README.md

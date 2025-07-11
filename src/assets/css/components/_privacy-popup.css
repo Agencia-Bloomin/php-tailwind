@@ -1,0 +1,30 @@
+/* Privacy Popup Component Styles */
+
+#privacy-popup {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 50;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 2px solid rgba(var(--color-primary), 0.2);
+    max-width: 20rem;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#privacy-popup::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(var(--color-primary), 0.05);
+    border-radius: 0.5rem;
+    z-index: -1;
+}
+
+#privacy-popup.opacity-100 {
+    opacity: 1;
+} 

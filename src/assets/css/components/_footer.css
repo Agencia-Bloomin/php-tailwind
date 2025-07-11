@@ -1,0 +1,18 @@
+/* Footer Component Styles */
+
+footer li a {
+    transition: all 0.3s ease-in-out;
+}
+
+footer li a:hover {
+    color: white !important;
+}
+
+footer li a .iconify {
+    transition: all 0.3s ease-in-out;
+}
+
+footer li a:hover .iconify {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+} 

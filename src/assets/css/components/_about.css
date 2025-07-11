@@ -1,0 +1,9 @@
+/* About Component Styles */
+
+.iconify {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.iconify:hover {
+    transform: scale(1.1);
+} 

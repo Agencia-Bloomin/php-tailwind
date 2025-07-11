@@ -1,0 +1,322 @@
+@theme {
+  /* Cores principais do tema */
+  --color-primary: #38143f;
+  --color-primary2: #61346A;
+  --color-primary3: #8C6195;
+  --color-primary4: #BA9DBF;
+
+  /* Fontes globais */
+  --font-main: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Roboto Mono", "Courier New", monospace;
+}
+
+@import "tailwindcss";
+
+/* Component Styles */
+@import './components/_header.css';
+@import './components/_footer.css';
+@import './components/_faq.css';
+@import './components/_hero.css';
+@import './components/_about.css';
+@import './components/_contact.css';
+@import './components/_detailedServices.css';
+@import './components/_services.css';
+@import './components/_privacy-popup.css';
+@import './components/_scroll-to-top.css';
+@import './components/_404.css';
+@import './components/_whatsapp-float.css';
+@import './components/_banner-carousel.css';
+
+body {
+  font-family: theme('fontFamily.main');
+  color: theme('colors.primary3');
+  background: #fff;
+}
+
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+.content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin: 2rem 0 1rem 0;
+  line-height: 1.3;
+}
+
+.content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #404040;
+  margin: 1.5rem 0 0.75rem 0;
+  line-height: 1.3;
+}
+
+.content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #555;
+  margin: 1.25rem 0 0.5rem 0;
+}
+
+.content h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #666;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.content h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #777;
+  margin: 1rem 0 0.5rem 0;
+}
+
+
+.content p {
+  margin: 0 0 1rem 0;
+  color: #555;
+  text-align: justify;
+}
+
+
+.content a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.content a:hover {
+  color: #0056b3;
+  border-bottom-color: #0056b3;
+}
+
+
+.content ul,
+.content ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.content ul {
+  list-style-type: disc;
+}
+
+.content ol {
+  list-style-type: decimal;
+}
+
+.content li {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.content ul ul,
+.content ol ol,
+.content ul ol,
+.content ol ul {
+  margin: 0.5rem 0;
+}
+
+
+.content blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  background: #f8f9fa;
+  border-left: 4px solid #007bff;
+  font-style: italic;
+  color: #555;
+  position: relative;
+}
+
+.content blockquote::before {
+  content: '"';
+  font-size: 3rem;
+  color: #007bff;
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  font-family: Georgia, serif;
+}
+
+
+.content code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: #d63384;
+}
+
+.content pre {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid #e9ecef;
+}
+
+.content pre code {
+  background: none;
+  padding: 0;
+  color: #333;
+}
+
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.content th,
+.content td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.content th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.content tr:hover {
+  background: #f8f9fa;
+}
+
+
+.content strong,
+.content b {
+  font-weight: 700;
+  color: #333;
+}
+
+.content em,
+.content i {
+  font-style: italic;
+}
+
+.content mark {
+  background: #fff3cd;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+
+.content hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #007bff, transparent);
+  margin: 2rem 0;
+}
+
+
+.content input,
+.content textarea,
+.content select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+.content input:focus,
+.content textarea:focus,
+.content select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+.content button,
+.content .btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.content button:hover,
+.content .btn:hover {
+  background: #0056b3;
+}
+
+
+@media (max-width: 768px) {
+  .content {
+      padding: 15px;
+  }
+  
+  .content h1 {
+      font-size: 2rem;
+  }
+  
+  .content h2 {
+      font-size: 1.5rem;
+  }
+  
+  .content h3 {
+      font-size: 1.25rem;
+  }
+  
+  .content table {
+      font-size: 0.9rem;
+  }
+  
+  .content th,
+  .content td {
+      padding: 0.5rem;
+  }
+}
