@@ -35,9 +35,9 @@ return [
     ],
 
     'social' => [
-        'facebook' => '',
-        'instagram' => '',
-        'linkedin' => '',
+        'facebook' => 'https://www.facebook.com/agenciabloomin/',
+        'instagram' => 'https://www.instagram.com/agenciabloomin/',
+        'linkedin' => 'https://www.linkedin.com/company/ag%C3%AAncia-bloomin/',
         'youtube' => ''
     ],
 ];

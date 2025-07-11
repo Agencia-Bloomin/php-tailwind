@@ -9,8 +9,8 @@ $footerLinks = [
         'icon' => 'mdi:map-marker-radius',
         'links' => [
             ['text' => 'Início', 'href' => './', 'icon' => 'mdi:home-outline'],
-            ['text' => 'Sobre Nós', 'href' => '#', 'icon' => 'mdi:laser-pointer'],
-            ['text' => 'Serviços', 'href' => '#', 'icon' => 'mdi:laser-pointer'],
+            ['text' => 'Sobre Nós', 'href' => 'sobre', 'icon' => 'mdi:laser-pointer'],
+            ['text' => 'Serviços', 'href' => 'servicos', 'icon' => 'mdi:laser-pointer'],
             ['text' => 'Contato', 'href' => './contato', 'icon' => 'mdi:phone-outline']
         ]
     ]
