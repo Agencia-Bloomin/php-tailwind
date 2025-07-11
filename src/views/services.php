@@ -17,6 +17,7 @@ $this->layout('layout/base', [
         'heroSubtitle' => $seoConfig['services']['description'],
         'breadcrumb' => [
             ['label' => 'Home', 'href' => '/'],
+            ['label' => 'Serviços', 'href' => '/servicos'],
             ['label' => 'Serviços']
         ]
     ]) ?>
