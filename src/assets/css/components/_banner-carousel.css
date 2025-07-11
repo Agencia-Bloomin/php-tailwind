@@ -1,0 +1,189 @@
+/* Banner Carousel Styles */
+.banner-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    max-height: 800px;
+}
+
+.banner-slide {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    min-height: 300px;
+    overflow: hidden;
+
+    @media (max-width: 767px) {
+        height: 600px;
+    }
+}
+
+/* Imagens absolutas, só a visível ocupa espaço */
+.banner-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    z-index: 0;
+}
+
+/* Tailwind-like responsividade para ocultar/mostrar imagens */
+.banner-image.hidden { display: none !important; }
+.banner-image.block { display: block !important; }
+
+@media (min-width: 768px) {
+    .banner-image.md\:block { display: block !important; }
+    .banner-image.md\:hidden { display: none !important; }
+}
+@media (max-width: 767px) {
+    .banner-image.md\:block { display: none !important; }
+    .banner-image.md\:hidden { display: block !important; }
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--color-primary3);
+    z-index: 10;
+    width: 90%;
+    max-width: 600px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    font-family: var(--font-main);
+}
+
+.banner-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-main);
+}
+
+.banner-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-main);
+}
+
+.banner-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--color-primary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+}
+
+.banner-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: var(--color-primary2);
+}
+
+.banner-nav-next,
+.banner-nav-prev {
+    color: #fff !important;
+    background: var(--color-primary3, rgba(255,255,255,0.2));
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.banner-nav-next:hover,
+.banner-nav-prev:hover {
+    background: var(--color-primary2, rgba(255,255,255,0.3));
+    transform: scale(1.1);
+}
+
+.banner-nav-next::after,
+.banner-nav-prev::after {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+
+.banner-pagination {
+    bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+    background: var(--color-primary4, rgba(255,255,255,0.5)) !important;
+    opacity: 1 !important;
+    width: 12px !important;
+    height: 12px !important;
+    margin: 0 6px !important;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-primary) !important;
+    transform: scale(1.2);
+}
+
+@media (max-width: 767px) {
+    .banner-nav-next,
+    .banner-nav-prev {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .banner-nav-next::after,
+    .banner-nav-prev::after {
+        font-size: 1rem !important;
+    }
+    .banner-pagination {
+        bottom: 15px !important;
+    }
+    .swiper-pagination-bullet {
+        width: 10px !important;
+        height: 10px !important;
+        margin: 0 4px !important;
+    }
+}
+
+.banner-slide {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.banner-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 1;
+}

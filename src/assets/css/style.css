@@ -25,6 +25,7 @@
 @import './components/_scroll-to-top.css';
 @import './components/_404.css';
 @import './components/_whatsapp-float.css';
+@import './components/_banner-carousel.css';
 
 body {
   font-family: theme('fontFamily.main');

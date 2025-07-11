@@ -16,22 +16,17 @@ $this->layout('layout/base', [
 ?>
 
 <?php $this->start('main_content') ?>
-    <?= $this->insert('components/sections/hero', [
-        'heroTitle' => $seoConfig['home']['hero_title'],
-        'heroSubtitle' => $seoConfig['home']['description'],
-        'breadcrumb' => [
-            ['label' => 'Home', 'href' => '/']
-        ]
-    ]) ?>
+
+<?= $this->insert('components/sections/banner-carousel') ?>
 
 <?= $this->insert('components/sections/about') ?>
 
 <?= $this->insert('components/sections/services') ?>
-    
-    <?= $this->insert('components/sections/faq') ?>
 
-    <?= $this->insert('components/sections/conversionContent') ?>
+<?= $this->insert('components/sections/faq') ?>
 
-    <?= $this->insert('components/sections/contact') ?>
-    
-<?php $this->stop() ?> 
+<?= $this->insert('components/sections/conversionContent') ?>
+
+<?= $this->insert('components/sections/contact') ?>
+
+<?php $this->stop() ?>
