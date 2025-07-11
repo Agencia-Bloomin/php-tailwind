@@ -1,9 +1,9 @@
 @theme {
   /* Cores principais do tema */
-  --color-primary: #006342;
-  --color-primary2: #0066CC;
-  --color-primary3: #001A33;
-  --color-primary4: #c3dafe;
+  --color-primary: #38143f;
+  --color-primary2: #61346A;
+  --color-primary3: #8C6195;
+  --color-primary4: #BA9DBF;
 
   /* Fontes globais */
   --font-main: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;

@@ -1,38 +1,38 @@
 <?php
 $services = $services ?? [
     [
-        'title' => 'Soldagem a Laser',
-        'description' => 'Alta precisão aplicada em ferramentaria, moldes e peças técnicas de diversos materiais.',
+        'title' => 'Lorem Ipsum',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'icon' => 'mdi:lightning-bolt',
         'image' => 'src/assets/images/about.jpg',
     ],
     [
-        'title' => 'Soldagem MIG',
-        'description' => 'Ideal para estruturas industriais com alto desempenho em aplicações de média e alta complexidade.',
+        'title' => 'Lorem Ipsum',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'icon' => 'mdi:tools',
         'image' => 'src/assets/images/about.jpg',
     ],
     [
-        'title' => 'Soldagem TIG',
-        'description' => 'Indicada para metais especiais, com acabamento refinado e elevada qualidade técnica.',
+        'title' => 'Lorem Ipsum',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'icon' => 'mdi:sine-wave',
         'image' => 'src/assets/images/about.jpg',
     ],
     [
-        'title' => 'Eletrodo Revestido',
-        'description' => 'Versatilidade e robustez para estruturas metálicas que exigem resistência mecânica elevada.',
+        'title' => 'Lorem Ipsum',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'icon' => 'mdi:hammer',
         'image' => 'src/assets/images/about.jpg',
     ],
     [
-        'title' => 'Brasagem',
-        'description' => 'União precisa de metais por meio de aquecimento controlado, sem fusão direta das peças base.',
+        'title' => 'Lorem Ipsum',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'icon' => 'mdi:fire',
         'image' => 'src/assets/images/about.jpg',
     ],
     [
-        'title' => 'Soldagem de Punções e Matrizes',
-        'description' => 'Recondicionamento técnico para moldes e ferramentas de corte com alto padrão de exigência.',
+        'title' => 'Lorem Ipsum',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
         'icon' => 'mdi:cube-outline',
         'image' => 'src/assets/images/about.jpg',
     ]
@@ -58,10 +58,10 @@ foreach ($attributes as $key => $value) {
                 <span class="iconify w-5 h-5 mr-2" data-icon="heroicons:wrench-screwdriver"></span>
                 Soluções de Soldagem Industrial
             </div>
-            <h2 class="text-4xl md:text-5xl font-extrabold text-primary3 mb-4 drop-shadow-lg">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-primary mb-4 drop-shadow-lg">
                 Nossos Serviços
             </h2>
-            <p class="text-xl text-primary2 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
                 Conheça as soluções que oferecemos para sua indústria, com tecnologia de ponta e equipe especializada.
             </p>
         </div>
@@ -77,10 +77,10 @@ foreach ($attributes as $key => $value) {
                             </span>
                         </div>
                         <div class="p-8 flex flex-col flex-1 w-full h-full">
-                            <h3 class="text-2xl font-bold text-primary3 mb-3">
+                            <h3 class="text-2xl font-bold text-primary2 mb-3">
                                 <?= $service['title'] ?>
                             </h3>
-                            <p class="text-primary2 mb-8 leading-relaxed flex-grow">
+                            <p class="text-gray-600 mb-8 leading-relaxed flex-grow">
                                 <?= $service['description'] ?>
                             </p>
                             <div class="flex flex-col sm:flex-row gap-3 w-full mt-auto">
