@@ -34,7 +34,7 @@ $tabs = [
 ];
 ?>
 
-<section class="relative py-24 bg-gradient-to-br from-primary to-primary2 overflow-hidden" <?= $attrs ?>>
+<section class="relative py-24 <?= $isSobrePage ? 'bg-white' : 'bg-gradient-to-br from-primary to-primary2' ?> overflow-hidden" <?= $attrs ?>>
     <div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="relative group">
