@@ -1,20 +1,20 @@
 <?php
 $faq_items = [
     [
-        'question' => 'Quais são os principais serviços de soldagem a laser?',
-        'answer' => 'Realizamos aplicações de alta precisão para os setores automotivo, aeroespacial, médico, eletrônico e de ferramentaria. Nossa tecnologia proporciona soldas com zona termicamente afetada mínima, assegurando acabamento técnico superior e alta durabilidade.'
+        'question' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+        'answer' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
     ],
     [
-        'question' => 'Como a soldagem a laser se diferencia de outros métodos?',
-        'answer' => 'Oferece precisão superior, mínima distorção térmica e capacidade de unir materiais complexos com diferentes espessuras. É ideal para aplicações que exigem altíssima qualidade, controle dimensional rigoroso e acabamentos técnicos refinados.'
+        'question' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+        'answer' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
     ],
     [
-        'question' => 'Qual é o tempo médio de entrega de um projeto?',
-        'answer' => 'O prazo de entrega depende da complexidade e das especificações técnicas de cada demanda. Projetos de médio porte costumam ser finalizados entre 5 e 15 dias úteis. Oferecemos consulta técnica gratuita para avaliação precisa do seu caso.'
+        'question' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+        'answer' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
     ],
     [
-        'question' => 'Quais materiais podem ser soldados com laser?',
-        'answer' => 'A tecnologia a laser é compatível com aços inoxidáveis, alumínio, titânio, cobre e ligas especiais, oferecendo excelente desempenho em cada aplicação. Cada projeto é avaliado individualmente para garantir a melhor solução técnica e desempenho mecânico ideal.'
+        'question' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
+        'answer' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.'
     ]
 ];
 ?>
@@ -33,12 +33,12 @@ $faq_items = [
                     <p class="text-xl text-primary2 max-w-3xl mx-auto leading-relaxed drop-shadow-sm">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam nisl nisi euismod nunc.
                     </p>
-                    <div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm">
+                    <div class="bg-white border border-neutral-200 rounded-2xl p-8 shadow-sm mt-10">
                         <h3 class="text-2xl font-bold text-primary3 mb-6">
                             Precisa de Ajuda Especializada?
                         </h3>
                         <p class="text-primary2 mb-8">
-                            Nossa equipe técnica está preparada para fornecer respostas detalhadas e personalizadas sobre soldagem a laser.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
                         </p>
                         <?= $this->insert('components/ui/button', [
                             'text' => 'Consulta Técnica Gratuita',
