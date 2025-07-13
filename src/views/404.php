@@ -1,15 +1,6 @@
 <?php
-$seoConfig = require dirname(__DIR__) . '/config/seo.php';
-
-$this->layout('layout/base', [
-    'title' => $seoConfig['404']['title'],
-    'description' => $seoConfig['404']['description'],
-    'keywords' => $seoConfig['404']['keywords'],
-    'ogTitle' => $seoConfig['404']['og_title'],
-    'ogDescription' => $seoConfig['404']['og_description'],
-    'ogImage' => $seoConfig['404']['og_image'],
-    'canonical' => $seoConfig['404']['canonical']
-]);
+// Usa o template base que já inclui toda a configuração SEO
+$this->insert('components/layout/page-base');
 ?>
 
 <?php $this->start('main_content') ?>

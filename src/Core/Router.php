@@ -7,6 +7,7 @@ use FastRoute\RouteCollector;
 use League\Plates\Engine;
 use function FastRoute\simpleDispatcher;
 use App\Core\SchemaHelper;
+use App\Core\PageManager;
 
 class Router
 {
@@ -14,35 +15,23 @@ class Router
     private Engine $templates;
     private ApiClient $apiClient;
     private SchemaHelper $schemaHelper;
-    private array $replacements = [];
+    private PageManager $pageManager;
 
     public function __construct()
     {
         $this->templates = new Engine(dirname(__DIR__) . '/views');
         $this->apiClient = new ApiClient();
         $this->schemaHelper = new SchemaHelper();
+        $this->pageManager = new PageManager();
 
-        // 1. Carrega as configurações brutas
+        // Carrega as configurações
         $siteConfig = require dirname(__DIR__) . '/config/site.php';
-        $seoConfig = require dirname(__DIR__) . '/config/seo.php';
 
-        // 2. Define o mapa de substituições para as variáveis globais
-        $this->replacements = [
-            '{{site_name}}' => $siteConfig['site_name'],
-            '{{company_name}}' => $siteConfig['company_name'],
-            '{{home_description}}' => $seoConfig['home']['description'],
-            '{{site_description}}' => $seoConfig['home']['description']
-        ];
-
-        // 3. Processa o array de SEO, substituindo os placeholders
-        // Usamos json_encode/decode para garantir que a substituição ocorra em todos os níveis do array.
-        $processedSeoConfig = json_decode(str_replace(array_keys($this->replacements), array_values($this->replacements), json_encode($seoConfig)), true);
-
-        // 4. Disponibiliza as configurações PROCESSADAS para TODOS os templates (incluindo o layout)
+        // Disponibiliza as configurações para TODOS os templates
         $this->templates->addData([
-            'siteConfig' => $siteConfig, // siteConfig não tem placeholders que dependem de outros arquivos
-            'seoConfig'  => $processedSeoConfig, // seoConfig agora está totalmente processado
-            'year'       => date('Y')
+            'siteConfig' => $siteConfig,
+            'pageManager' => $this->pageManager,
+            'year' => date('Y')
         ]);
 
         $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
@@ -55,24 +44,47 @@ class Router
         }
 
         $this->dispatcher = simpleDispatcher(function (RouteCollector $r) use ($baseUrl) {
-            $r->addRoute('GET', $baseUrl . '/', 'home');
-            $r->addRoute('GET', $baseUrl . '/servicos', 'services');
-            $r->addRoute(['GET', 'POST'], $baseUrl . '/contato', 'contact'); // Permite GET e POST para o formulário
-            $r->addRoute('GET', $baseUrl . '/sobre', 'about');
-            $r->addRoute('GET', $baseUrl . '/faq', 'faq');
-            $r->addRoute('GET', $baseUrl . '/mapa-site', 'sitemap');
+            // Registra rotas automaticamente baseadas na configuração de páginas
+            foreach ($this->pageManager->getAllPages() as $pageKey => $page) {
+                if ($page['route'] !== null) {
+                    $methods = $page['methods'];
+                    $route = $baseUrl . $page['route'];
+
+                    if (is_array($methods)) {
+                        $r->addRoute($methods, $route, $pageKey);
+                    } else {
+                        $r->addRoute([$methods], $route, $pageKey);
+                    }
+                }
+            }
+
+            // Rotas especiais
             $r->addRoute('GET', $baseUrl . '/sitemap.xml', 'sitemap');
             $r->addRoute('GET', $baseUrl . '/robots.txt', 'robots');
             $r->addRoute('GET', $baseUrl . '/{slug}', 'dynamic');
         });
     }
 
-    private function renderView(string $view, array $data = []): string
+    private function renderView(string $pageKey, array $data = []): string
     {
+        // Busca a configuração da página
+        $page = $this->pageManager->getPage($pageKey);
+
+        if ($page) {
+            // Adiciona dados SEO da página
+            $data = array_merge($data, [
+                'seoConfig' => $page['seo'],
+                'pageName' => $pageKey // Passa o nome da página
+            ]);
+        }
+
         // Adicionar schema se não estiver definido
         if (!isset($data['schema'])) {
-            $data['schema'] = $this->schemaHelper->generateSchema($view);
+            $data['schema'] = $this->schemaHelper->generateSchema($pageKey);
         }
+
+        // Usa a view definida na configuração da página
+        $view = $page['view'] ?? $pageKey;
 
         return $this->templates->render($view, $data);
     }
@@ -82,15 +94,8 @@ class Router
         $siteConfig = require dirname(__DIR__) . '/config/site.php';
         $baseUrl = $siteConfig['url'];
 
-        // Rotas estáticas
-        $staticRoutes = [
-            '/' => ['url' => $baseUrl . '/', 'lastmod' => date('c'), 'changefreq' => 'daily', 'priority' => '1.0'],
-            '/servicos' => ['url' => $baseUrl . '/servicos', 'lastmod' => date('c'), 'changefreq' => 'weekly', 'priority' => '0.9'],
-            '/contato' => ['url' => $baseUrl . '/contato', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.7'],
-            '/sobre' => ['url' => $baseUrl . '/sobre', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.8'],
-            '/faq' => ['url' => $baseUrl . '/faq', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.6'],
-            '/mapa-site' => ['url' => $baseUrl . '/mapa-site', 'lastmod' => date('c'), 'changefreq' => 'monthly', 'priority' => '0.5']
-        ];
+        // Rotas estáticas baseadas na configuração de páginas
+        $staticRoutes = $this->pageManager->generateSitemapData($baseUrl);
 
         // Páginas dinâmicas da API
         $dynamicRoutes = [];

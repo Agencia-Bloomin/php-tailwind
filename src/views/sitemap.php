@@ -5,18 +5,8 @@ use App\Core\ApiClient;
 $api = new ApiClient();
 $pages = $api->getAllPages();
 
-$siteConfig = require dirname(__DIR__) . '/config/site.php';
-$seoConfig = require dirname(__DIR__) . '/config/seo.php';
-
-$this->layout('layout/base', [
-    'title' => $seoConfig['sitemap']['title'],
-    'description' => $seoConfig['sitemap']['description'],
-    'keywords' => $seoConfig['sitemap']['keywords'],
-    'ogTitle' => $seoConfig['sitemap']['og_title'],
-    'ogDescription' => $seoConfig['sitemap']['og_description'],
-    'ogImage' => $seoConfig['sitemap']['og_image'],
-    'canonical' => $seoConfig['sitemap']['canonical']
-]);
+// Usa o template base que já inclui toda a configuração SEO
+$this->insert('components/layout/page-base');
 ?>
 
 <?php $this->start('main_content') ?>

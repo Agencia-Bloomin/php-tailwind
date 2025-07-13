@@ -12,18 +12,16 @@
     <meta name="theme-color" content="#1f2937">
 
     <title><?= $this->e($title ?? $siteConfig['site_name']) ?></title>
-    <meta name="description" content="<?= $this->e($description ?? $seoConfig['home']['description']) ?>">
-    <meta name="keywords" content="<?= $this->e($keywords ?? $seoConfig['home']['description']) ?>">
+    <meta name="description" content="<?= $this->e($description ?? $siteConfig['site_name']) ?>">
+    <meta name="keywords" content="<?= $this->e($keywords ?? '') ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?= $siteConfig['site_name'] ?>">
     <meta property="og:url" content="<?= $this->e($canonical ?? $siteConfig['url'] . $_SERVER['REQUEST_URI']) ?>">
     <meta property="og:title" content="<?= $this->e($ogTitle ?? $title ?? $siteConfig['site_name']) ?>">
-    <meta property="og:description" content="<?= $this->e($ogDescription ?? $description ?? $seoConfig['home']['description']) ?>">
-    <meta property="og:image" content="<?= $this->e($ogImage ?? $siteConfig['url'] . $seoConfig['home']['og_image']) ?>">
-
-
+    <meta property="og:description" content="<?= $this->e($ogDescription ?? $description ?? $siteConfig['site_name']) ?>">
+    <meta property="og:image" content="<?= $this->e($ogImage ?? '') ?>">
 
     <link rel="canonical" href="<?= $this->e($canonical ?? $siteConfig['url'] . $_SERVER['REQUEST_URI']) ?>">
 
