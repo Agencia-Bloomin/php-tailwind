@@ -171,25 +171,4 @@ return [
             'priority' => '0.1'
         ]
     ],
-
-    'blog' => [
-        'route' => '/blog',
-        'view' => 'blog',
-        'methods' => ['GET'],
-        'seo' => [
-            'title' => 'Blog - {{site_name}}',
-            'hero_title' => 'Nosso Blog',
-            'hero_description' => 'Fique por dentro das últimas novidades e dicas',
-            'description' => 'Blog com artigos, dicas e novidades sobre nossos serviços e o mercado',
-            'keywords' => 'blog, artigos, dicas, novidades, {{site_name}}',
-            'og_title' => 'Blog - {{site_name}}',
-            'og_description' => 'Blog com artigos, dicas e novidades sobre nossos serviços e o mercado',
-            'og_image' => '/src/assets/images/blog.webp',
-            'canonical' => '/blog'
-        ],
-        'sitemap' => [
-            'changefreq' => 'weekly',
-            'priority' => '0.8'
-        ]
-    ]
 ];
