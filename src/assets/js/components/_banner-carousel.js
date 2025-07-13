@@ -1,3 +1,6 @@
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
+
 // Banner Carousel Component
 class BannerCarousel {
     constructor() {
@@ -52,7 +55,6 @@ class BannerCarousel {
 
         // Adicionar eventos de teclado
         this.setupKeyboardEvents();
-
         // Adicionar eventos de touch para mobile
         this.setupTouchEvents();
     }
@@ -135,20 +137,6 @@ class BannerCarousel {
 }
 
 // Inicializar quando o script for carregado
-let bannerCarousel;
-
-// Verificar se o Swiper está disponível
-if (typeof Swiper !== 'undefined') {
-    bannerCarousel = new BannerCarousel();
-} else {
-    // Aguardar o Swiper ser carregado
-    window.addEventListener('load', () => {
-        if (typeof Swiper !== 'undefined') {
-            bannerCarousel = new BannerCarousel();
-        }
-    });
-}
-
-// Exportar para uso global
+let bannerCarousel = new BannerCarousel();
 window.BannerCarousel = BannerCarousel;
 window.bannerCarousel = bannerCarousel;
