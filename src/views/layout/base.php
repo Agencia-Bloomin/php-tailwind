@@ -3,8 +3,6 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
@@ -12,18 +10,16 @@
     <meta name="theme-color" content="#1f2937">
 
     <title><?= $this->e($title ?? $siteConfig['site_name']) ?></title>
-    <meta name="description" content="<?= $this->e($description ?? $seoConfig['home']['description']) ?>">
-    <meta name="keywords" content="<?= $this->e($keywords ?? $seoConfig['home']['description']) ?>">
+    <meta name="description" content="<?= $this->e($description ?? $siteConfig['site_name']) ?>">
+    <meta name="keywords" content="<?= $this->e($keywords ?? '') ?>">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?= $siteConfig['site_name'] ?>">
     <meta property="og:url" content="<?= $this->e($canonical ?? $siteConfig['url'] . $_SERVER['REQUEST_URI']) ?>">
     <meta property="og:title" content="<?= $this->e($ogTitle ?? $title ?? $siteConfig['site_name']) ?>">
-    <meta property="og:description" content="<?= $this->e($ogDescription ?? $description ?? $seoConfig['home']['description']) ?>">
-    <meta property="og:image" content="<?= $this->e($ogImage ?? $siteConfig['url'] . $seoConfig['home']['og_image']) ?>">
-
-
+    <meta property="og:description" content="<?= $this->e($ogDescription ?? $description ?? $siteConfig['site_name']) ?>">
+    <meta property="og:image" content="<?= $this->e($ogImage ?? '') ?>">
 
     <link rel="canonical" href="<?= $this->e($canonical ?? $siteConfig['url'] . $_SERVER['REQUEST_URI']) ?>">
 
@@ -101,9 +97,6 @@
     <?= $this->insert('components/ui/scroll-to-top') ?>
 
     <?= $this->insert('components/ui/privacy-popup') ?>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <?php if ($siteConfig['gtm']): ?>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?= $siteConfig['gtm'] ?>"

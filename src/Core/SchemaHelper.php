@@ -21,12 +21,14 @@ class SchemaHelper
         $processed = json_encode($schema);
 
         // Substituir variáveis
-        $seoConfig = require dirname(__DIR__) . '/config/seo.php';
+        $pageManager = new \App\Core\PageManager();
+        $homeSeo = $pageManager->getPageSeo('home');
+
         $replacements = [
             '{{site_name}}' => $this->siteConfig['site_name'],
             '{{site_url}}' => $this->siteConfig['url'],
             '{{company_name}}' => $this->siteConfig['company_name'],
-            '{{site_description}}' => $seoConfig['home']['description'],
+            '{{site_description}}' => $homeSeo['description'] ?? $this->siteConfig['site_name'],
             '{{social_facebook}}' => $this->siteConfig['social']['facebook'] ?: 'https://www.facebook.com/' . strtolower($this->siteConfig['company_name']),
             '{{social_instagram}}' => $this->siteConfig['social']['instagram'] ?: 'https://www.instagram.com/' . strtolower($this->siteConfig['company_name']),
             '{{social_linkedin}}' => $this->siteConfig['social']['linkedin'] ?: 'https://www.linkedin.com/company/' . strtolower($this->siteConfig['company_name']),
@@ -142,11 +144,13 @@ class SchemaHelper
      */
     public function generateLocalBusinessSchema(): string
     {
-        $seoConfig = require dirname(__DIR__) . '/config/seo.php';
+        $pageManager = new \App\Core\PageManager();
+        $homeSeo = $pageManager->getPageSeo('home');
+
         $schema = [
             '@type' => 'LocalBusiness',
             'name' => $this->siteConfig['company_name'],
-            'description' => $seoConfig['home']['description'],
+            'description' => $homeSeo['description'] ?? $this->siteConfig['site_name'],
             'url' => $this->siteConfig['url']
         ];
 

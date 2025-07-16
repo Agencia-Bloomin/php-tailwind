@@ -1,26 +1,27 @@
 <?php
 $this->layout('layout/base', [
-    'title' => $seoConfig['about']['title'],
-    'description' => $seoConfig['about']['description'],
-    'keywords' => $seoConfig['about']['keywords'],
-    'ogTitle' => $seoConfig['about']['og_title'],
-    'ogDescription' => $seoConfig['about']['og_description'],
-    'ogImage' => $seoConfig['about']['og_image'],
-    'canonical' => $seoConfig['about']['canonical']
+    'title' => $seoConfig['title'] ?? $siteConfig['site_name'],
+    'description' => $seoConfig['description'] ?? $siteConfig['site_name'],
+    'keywords' => $seoConfig['keywords'] ?? '',
+    'ogTitle' => $seoConfig['og_title'] ?? $seoConfig['title'] ?? $siteConfig['site_name'],
+    'ogDescription' => $seoConfig['og_description'] ?? $seoConfig['description'] ?? $siteConfig['site_name'],
+    'ogImage' => $seoConfig['og_image'] ?? '',
+    'canonical' => $seoConfig['canonical'] ?? '/',
+    'schema' => $schema ?? null,
 ]);
+$this->start('main_content');
 ?>
 
-<?php $this->start('main_content') ?>
-    <?= $this->insert('components/sections/hero', [
-        'heroTitle' => $seoConfig['about']['hero_title'],
-        'heroSubtitle' => $seoConfig['about']['description'],
-        'breadcrumb' => [
-            ['label' => 'Home', 'href' => '/'],
-            ['label' => 'Sobre Nós']
-        ]
-    ]) ?>
+<?= $this->insert('components/sections/hero', [
+    'heroTitle' => $seoConfig['hero_title'] ?? $seoConfig['title'],
+    'heroSubtitle' => $seoConfig['description'] ?? '',
+    'breadcrumb' => [
+        ['label' => 'Início', 'href' => '/'],
+        ['label' => 'Sobre Nós']
+    ]
+]) ?>
 
-    <?= $this->insert('components/sections/about') ?>
-    
-    <?= $this->insert('components/sections/contact') ?>
-<?php $this->stop() ?> 
+<?= $this->insert('components/sections/about') ?>
+<?= $this->insert('components/sections/contact') ?>
+
+<?php $this->stop() ?>
