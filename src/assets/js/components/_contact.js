@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+
+
     // Form submission logic
     if (form) {
         form.addEventListener('submit', function (e) {

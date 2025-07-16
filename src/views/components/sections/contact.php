@@ -8,23 +8,34 @@ $whatsappNumber = $siteConfig['whatsapp']['number'] ?? '';
 $hasWhatsapp = !empty($whatsappNumber);
 
 $feedback = '';
+
+// Verificar se o email foi enviado com sucesso
+if (isset($_GET['success']) && $_GET['success'] === '1') {
+    $feedback = '<div class="p-4 mb-4 text-success bg-success-light rounded-lg transform transition-all duration-300 ease-in-out">Sua mensagem foi enviada com sucesso!</div>';
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars($_POST['name'] ?? '');
     $email = htmlspecialchars($_POST['email'] ?? '');
+    $tel = htmlspecialchars($_POST['telefone'] ?? '');
     $subject = htmlspecialchars($_POST['subject'] ?? 'Contato pelo site');
     $message = nl2br(htmlspecialchars($_POST['message'] ?? ''));
 
     $mailer = new Mailer();
-    $toEmail = $config['to_email'] ?? $config['username'];
     $body = "<p><strong>Nome:</strong> {$name}</p>";
     $body .= "<p><strong>Email:</strong> {$email}</p>";
+    $body .= "<p><strong>Telefone:</strong> {$tel}</p>";
     $body .= "<p><strong>Assunto:</strong> {$subject}</p>";
     $body .= "<p><strong>Mensagem:</strong><br>{$message}</p>";
 
-    $sent = $mailer->send($toEmail, "Contato: {$subject}", $body, strip_tags($body));
+    // Enviar para ambos (teste e cliente) se estiverem habilitados
+    $results = $mailer->sendToBoth("Contato: {$subject}", $body, strip_tags($body));
+    $sent = $results['test'] || $results['client'];
 
     if ($sent) {
-        $feedback = '<div class="p-4 mb-4 text-success bg-success-light rounded-lg transform transition-all duration-300 ease-in-out">Sua mensagem foi enviada com sucesso!</div>';
+        // Redirecionar para evitar reenvio ao recarregar
+        header('Location: ' . $_SERVER['REQUEST_URI'] . '?success=1');
+        exit;
     } else {
         $feedback = '<div class="p-4 mb-4 text-error bg-error-light rounded-lg transform transition-all duration-300 ease-in-out">Houve um erro ao enviar sua mensagem. Tente novamente mais tarde.</div>';
     }
@@ -127,7 +138,7 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                             Solicite seu Orçamento
                         </h3>
                         <?= $feedback ?>
-                        <form id="contact-form" method="post" class="space-y-6" autocomplete="off">
+                        <form id="contact-form" method="post" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="relative">
                                     <label for="name" class="block text-sm font-medium text-primary2 mb-2">Nome Completo</label>
@@ -151,8 +162,11 @@ if (!empty($siteConfig['address']['city']) && !empty($siteConfig['address']['sta
                             <div class="relative">
                                 <label for="message" class="block text-sm font-medium text-primary2 mb-2">Mensagem</label>
                                 <textarea name="message" id="message" rows="6" required
-                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50"
-                                    placeholder="Descreva sua necessidade..."></textarea>
+                                    class="w-full px-4 py-4 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 bg-neutral-50 resize-none"
+                                    placeholder="Descreva sua necessidade..."
+                                    autocomplete="off"
+                                    spellcheck="true"
+                                    wrap="soft"></textarea>
                             </div>
                             <div class="flex items-center gap-6 mt-4">
                                 <span class="text-sm text-primary3 font-medium">Enviar via:</span>
