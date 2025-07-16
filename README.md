@@ -185,18 +185,85 @@ customAnimation(element) {
 
 ## 📧 Sistema de Email
 
-O projeto inclui um sistema de email configurável:
+O projeto inclui um sistema de email avançado com suporte a múltiplos destinatários:
+
+### Configuração
 
 ```php
 // src/config/email.php
 return [
-    'smtp_host' => 'smtp.gmail.com',
-    'smtp_port' => 587,
-    'smtp_username' => 'seu-email@gmail.com',
-    'smtp_password' => 'sua-senha-app',
-    'from_email' => 'contato@seudominio.com',
-    'from_name' => 'Nome do Site'
+    // Configurações do servidor SMTP
+    'smtp' => [
+        'host' => 'mail.bloomin.com.br',
+        'username' => 'user@example.com',
+        'password' => 'sua-senha',
+        'port' => 587,
+        'encryption' => 'tls',
+    ],
+
+    // Configurações do remetente
+    'from' => [
+        'email' => 'mail@bloomin.com.br',
+        'name' => 'Template PHP Tailwind',
+    ],
+
+    // Email de teste (para desenvolvimento)
+    'test' => [
+        'email' => 'celyna.dmnll@gmail.com',
+        'name' => 'Desenvolvedor Teste',
+        'enabled' => true, // Ativar/desativar emails de teste
+    ],
+
+    // Email principal do cliente
+    'client' => [
+        'email' => 'cliente@exemplo.com',
+        'name' => 'Cliente Principal',
+        'enabled' => true, // Ativar/desativar emails do cliente
+    ],
 ];
+```
+
+### Como Usar
+
+```php
+use App\Core\Mailer;
+
+$mailer = new Mailer();
+
+// Enviar apenas para teste
+$mailer->sendToTest($subject, $htmlBody, $textBody);
+
+// Enviar apenas para cliente
+$mailer->sendToClient($subject, $htmlBody, $textBody);
+
+// Enviar para ambos
+$results = $mailer->sendToBoth($subject, $htmlBody, $textBody);
+
+// Email personalizado
+$mailer->sendToCustom($email, $name, $subject, $htmlBody, $textBody);
+
+// Testar conexão SMTP
+$mailer->testConnection();
+```
+
+### Exemplo Prático
+
+```php
+// Formulário de contato
+$subject = "Nova Mensagem do Site";
+$htmlBody = "
+<html>
+<body>
+    <h2>Nova Mensagem Recebida</h2>
+    <p><strong>Nome:</strong> {$nome}</p>
+    <p><strong>Email:</strong> {$email}</p>
+    <p><strong>Mensagem:</strong> {$mensagem}</p>
+</body>
+</html>
+";
+
+// Envia para cliente e cópia para teste
+$results = $mailer->sendToBoth($subject, $htmlBody);
 ```
 
 ## 🎨 Customização
