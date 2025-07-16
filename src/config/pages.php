@@ -9,7 +9,7 @@ return [
     'home' => [
         'route' => '/',
         'view' => 'home',
-        'methods' => ['GET'],
+        'methods' => ['GET', 'POST'],
         'seo' => [
             'title' => '{{site_name}}',
             'hero_title' => 'Bem-vindo à Bloomin!',

@@ -63,6 +63,18 @@ class BannerCarousel {
         document.addEventListener('keydown', (e) => {
             if (!this.swiper) return;
 
+            // Verificar se o elemento ativo é um input, textarea ou está editável
+            const activeElement = document.activeElement;
+            const isEditable = activeElement && (
+                activeElement.tagName === 'INPUT' ||
+                activeElement.tagName === 'TEXTAREA' ||
+                activeElement.contentEditable === 'true' ||
+                activeElement.isContentEditable
+            );
+
+            // Se estiver editando, não interferir com as teclas
+            if (isEditable) return;
+
             switch (e.key) {
                 case 'ArrowLeft':
                     this.swiper.slidePrev();

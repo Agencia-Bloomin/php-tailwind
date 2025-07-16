@@ -24,9 +24,9 @@ return [
 
     // Email principal do cliente
     'client' => [
-        'email' => 'contato@cliente.com.br',
+        'email' => 'pedrobcoding@gmail.com',
         'name' => 'Cliente Principal',
-        'enabled' => false, // Ativar/desativar emails do cliente
+        'enabled' => true, // Ativar/desativar emails do cliente
     ],
 
     // Configurações de resposta (opcional)
