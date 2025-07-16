@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.FTP_USER_BLOOMIN_PROJETOS }}
           password: ${{ secrets.FTP_PASSWORD_BLOOMIN_PROJETOS }}
           local-dir: ./
-          server-dir: /desenvolvimento/php-tailwind/
+          server-dir: /desenvolvimento.bloominprojetos.com.br/php-tailwind/
           exclude: |
             node_modules/**
             .git/**
